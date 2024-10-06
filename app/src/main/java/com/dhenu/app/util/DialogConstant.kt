@@ -183,7 +183,7 @@ object DialogConstant {
         val tvHeader = alertDialog.findViewById<TextView>(R.id.tv_header)
         if (header != null && header.isNotEmpty()) {
             //tvHeader.setVisibility(View.VISIBLE);
-            tvHeader.text = header
+            tvHeader.text = "लॉग आउट"
         } else {
             //tvHeader.setVisibility(View.GONE);
             tvHeader.text = context.getString(R.string.app_name)
@@ -192,7 +192,7 @@ object DialogConstant {
         val button_cancel = alertDialog.findViewById<TextView>(R.id.buttonNo)
         button_ok.applyClickShrink()
         button_cancel.applyClickShrink()
-        tvMessage.text = message
+        //tvMessage.text = message
         button_ok.setOnClickListener { view ->
             if (onOkCancelListener != null) {
                 onOkCancelListener.onClickOk()

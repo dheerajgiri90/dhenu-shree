@@ -4,18 +4,18 @@
     <item
         android:id="@+id/navigation_home"
         android:icon="@mipmap/ic_nav_home"
-        android:title="@string/home" />
+        android:title="होम" />
 
     <item
         android:id="@+id/navigation_message"
         android:checked="true"
-        android:icon="@mipmap/ic_nav_payment"
-        android:title="@string/message" />
+        android:icon="@drawable/baseline_person_24"
+        android:title="एंट्री" />
 
 
     <item
         android:id="@+id/navigation_account"
-        android:icon="@mipmap/ic_nav_account"
-        android:title="@string/account" />
+        android:icon="@drawable/baseline_settings_24"
+        android:title="सेटिंग" />
 
 </menu>

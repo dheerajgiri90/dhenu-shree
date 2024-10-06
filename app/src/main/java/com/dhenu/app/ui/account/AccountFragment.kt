@@ -51,10 +51,12 @@ class AccountFragment : BaseFragment<FragmentAccountBinding, AccountViewModel>()
                 object : DialogConstant.OnOkCancelListener {
                     override fun onClickOk() {
 
-                        if (checkIfInternetOnDialog(tryAgainClick = {
-                                viewModel.logoutApi()
-                            }))
-                            viewModel.logoutApi()
+                        NotificationManagerCompat.from(requireContext()).cancelAll()
+                        ClearPreference.clearDataLogout(mContext!!)
+//                        if (checkIfInternetOnDialog(tryAgainClick = {
+//                                viewModel.logoutApi()
+//                            }))
+//                            viewModel.logoutApi()
                     }
 
                     override fun onClickCancel() {

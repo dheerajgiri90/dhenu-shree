@@ -47,17 +47,17 @@ class NavigationActivity : BaseActivity<ActivityNavigationBinding, NavigationVie
             when (menuItem.itemId) {
 
                 R.id.navigation_home -> run {
-                    setCurrentFragment(HomeFragment(), getString(R.string.home))
+                    setCurrentFragment(HomeFragment(), "होम")
 
                 }
 
                 R.id.navigation_message -> run {
-                    setCurrentFragment(HomeFragment(), getString(R.string.message))
+                    setCurrentFragment(HomeFragment(), "एंट्री")
 
                 }
 
                 R.id.navigation_account -> run {
-                    setCurrentFragment(AccountFragment(), getString(R.string.account))
+                    setCurrentFragment(AccountFragment(), "सेटिंग")
                 }
 
             }

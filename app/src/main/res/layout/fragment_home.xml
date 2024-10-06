@@ -19,8 +19,9 @@
             android:layout_below="@+id/textSignUp"
             android:background="@color/colorPrimary"
             android:fontFamily="@font/app_font_bold"
+            android:gravity="center"
             android:padding="@dimen/dp_15"
-            android:text="@string/home"
+            android:text="!! श्री !!"
             android:textColor="@color/white"
             android:textSize="@dimen/text_size18" />
 
@@ -36,19 +37,70 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:background="@color/screen_bg"
-                android:gravity="center"
-                android:orientation="vertical">
-
+                android:orientation="vertical"
+                android:padding="@dimen/dp_30">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp_5"
+                    android:fontFamily="@font/app_font_bold"
+                    android:gravity="center"
+                    android:text="धेनु श्री मनावर"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size24" />
+
+
+                <TextView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_30"
+                    android:background="@drawable/dr_edittext_background"
                     android:drawablePadding="@dimen/dp_15"
                     android:fontFamily="@font/app_font_medium"
                     android:gravity="center"
-                    android:padding="@dimen/dp_15"
-                    android:text="This is the home screen"
+                    android:padding="@dimen/dp_20"
+                    android:text="गिरवी"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size18" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_20"
+                    android:background="@drawable/dr_edittext_background"
+                    android:drawablePadding="@dimen/dp_15"
+                    android:fontFamily="@font/app_font_medium"
+                    android:gravity="center"
+                    android:padding="@dimen/dp_20"
+                    android:text="करियेदार"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size18" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_20"
+                    android:background="@drawable/dr_edittext_background"
+                    android:drawablePadding="@dimen/dp_15"
+                    android:fontFamily="@font/app_font_medium"
+                    android:gravity="center"
+                    android:padding="@dimen/dp_20"
+                    android:text="व्यापारी"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size18" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_20"
+                    android:background="@drawable/dr_edittext_background"
+                    android:drawablePadding="@dimen/dp_15"
+                    android:fontFamily="@font/app_font_medium"
+                    android:gravity="center"
+                    android:padding="@dimen/dp_20"
+                    android:text="धेनु श्री ज्वैलर्स"
                     android:textColor="@color/black"
                     android:textSize="@dimen/text_size18" />
 
