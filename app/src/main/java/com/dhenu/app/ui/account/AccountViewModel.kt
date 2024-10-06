@@ -17,11 +17,11 @@ class AccountViewModel : BaseViewModel<AccountNavigator>() {
                     override fun onResponse(data: LogoutResponse) {
                         navigator!!.hideProgress()
 
-                        if (data.isSuccess) {
-                            navigator!!.navigateToSignIn(data.message)
-                        } else {
-                            onServerError(data.message)
-                        }
+//                        if (data.isSuccess) {
+//                            navigator!!.navigateToSignIn(data.message)
+//                        } else {
+//                            onServerError(data.message)
+//                        }
                     }
 
                     override fun onFailure(message: String) {

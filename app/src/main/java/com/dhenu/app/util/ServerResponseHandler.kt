@@ -38,7 +38,7 @@ object ServerResponseHandler {
                 val error = jobject.get("error")
                 return getJsonErrorBody(error, jobject)
             } else {
-                return jobject.optString("message")
+                return jobject.optString("ResponseMessage")
             }
         } catch (e: Exception) {
             e.printStackTrace()

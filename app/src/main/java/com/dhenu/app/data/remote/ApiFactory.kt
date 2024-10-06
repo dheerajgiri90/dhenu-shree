@@ -1,17 +1,17 @@
 package com.dhenu.app.data.remote
 
 import com.dhenu.app.BuildConfig
-import com.dhenu.app.util.AppConstants
-import com.dhenu.app.util.Logger
 import com.dhenu.app.data.local.AppPreference
 import com.dhenu.app.data.local.PreferenceKeys
+import com.dhenu.app.util.AppConstants
+import com.dhenu.app.util.Logger
 import com.google.gson.GsonBuilder
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import java.util.*
+import java.util.TimeZone
 import java.util.concurrent.TimeUnit
 
 object ApiFactory {
@@ -34,7 +34,10 @@ object ApiFactory {
                 val original = chain.request()
 
                 val requestBuilder = original.newBuilder()
-                    .addHeader("Authorization", "Bearer " + AppPreference.getValue(PreferenceKeys.ACCESS_TOKEN)!!)
+                    .addHeader(
+                        "UserAuthToken",
+                        AppPreference.getValue(PreferenceKeys.ACCESS_TOKEN)!!
+                    )
                     .addHeader("timezone", TimeZone.getDefault().id)
                     .addHeader("device-version", BuildConfig.VERSION_NAME)
 
@@ -71,8 +74,8 @@ object ApiFactory {
             val requestBuilder = original.newBuilder()
             requestBuilder.addHeader("Accept", "application/json")
                 .addHeader("Content-Type", "application/json; charset=utf-8")
-                .addHeader("timezone", TimeZone.getDefault().id)
-                .addHeader("device-version", BuildConfig.VERSION_NAME)
+//                .addHeader("timezone", TimeZone.getDefault().id)
+                //.addHeader("device-version", BuildConfig.VERSION_NAME)
 
             val request = requestBuilder.build()
             chain.proceed(request)

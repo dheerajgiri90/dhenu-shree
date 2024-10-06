@@ -8,8 +8,8 @@ import java.util.*
 
 abstract class BaseResponse<T, K, V> {
 
-    @SerializedName("success")
-    var isSuccess: Boolean = false
+//    @SerializedName("ResponseMessage")
+//    var isSuccess: String = ""
 
     @SerializedName("error")
     var errorBean: ErrorBean? = null

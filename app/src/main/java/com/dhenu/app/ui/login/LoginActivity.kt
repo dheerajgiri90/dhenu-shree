@@ -2,8 +2,8 @@ package com.dhenu.app.ui.login
 
 import android.os.Bundle
 import androidx.core.content.ContextCompat
-import com.dhenu.app.R
 import com.dhenu.app.BR
+import com.dhenu.app.R
 import com.dhenu.app.databinding.ActivityLoginBinding
 import com.dhenu.app.ui.base.BaseActivity
 import com.dhenu.app.ui.login.response.LoginResponse
@@ -11,7 +11,6 @@ import com.dhenu.app.ui.navigation.NavigationActivity
 import com.dhenu.app.ui.signup.SignupActivity
 import com.dhenu.app.util.ActivityNavigator
 import com.dhenu.app.util.DataBinding
-import com.dhenu.app.util.DialogConstant
 
 class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>(), LoginNavigator {
 
@@ -38,19 +37,13 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>(), Logi
             hideKeyboard()
 
             if (checkIfInternetOnDialog(tryAgainClick = {
-//                    if (viewModel.checkEmailPassword(viewDataBinding!!)) {
-//                        viewModel.loginApi(viewDataBinding, count)
-//                    }
+                    if (viewModel.checkEmailPassword(viewDataBinding!!)) {
+                        viewModel.loginApi(viewDataBinding, count)
+                    }
                 }))
-//                if (viewModel.checkEmailPassword(viewDataBinding!!)) {
-//                    viewModel.loginApi(viewDataBinding, count)
-//                }
-
-                ActivityNavigator.startActivityFinish(
-                    this@LoginActivity,
-                    NavigationActivity::class.java
-                )
-            finish()
+                if (viewModel.checkEmailPassword(viewDataBinding!!)) {
+                    viewModel.loginApi(viewDataBinding, count)
+                }
 
         }
 
@@ -71,20 +64,20 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>(), Logi
 
     override fun loginSuccess(data: LoginResponse) {
 
-        DialogConstant.showAlertDialog(
-            getStringResource(R.string.dialog_alert_heading), data.message, this,
-            object : DialogConstant.OnConfirmedListener {
-                override fun onConfirmed() {
-
-                    ActivityNavigator.startActivityFinish(
-                        this@LoginActivity,
-                        NavigationActivity::class.java
-                    )
-                    finish()
-                }
-
-            }
+        ActivityNavigator.startActivityFinish(
+            this@LoginActivity,
+            NavigationActivity::class.java
         )
+        finish()
+
+//        DialogConstant.showAlertDialog(
+//            getStringResource(R.string.dialog_alert_heading), data.message, this,
+//            object : DialogConstant.OnConfirmedListener {
+//                override fun onConfirmed() {
+//                }
+//
+//            }
+//        )
 
     }
 

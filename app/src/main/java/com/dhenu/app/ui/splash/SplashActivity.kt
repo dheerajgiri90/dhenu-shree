@@ -41,7 +41,7 @@ class SplashActivity : BaseActivity<ActivitySplashBinding, SplashViewModel>(), S
     override fun moveToNextScreen() {
         Handler(Looper.getMainLooper()).postDelayed({
 
-            if (CommonUtils.isStringNullOrBlank(AppPreference.getValue(PreferenceKeys.GET_STARTED))) {
+            if (CommonUtils.isStringNullOrBlank(AppPreference.getValue(PreferenceKeys.ACCESS_TOKEN))) {
                 val mainIntent = Intent(this, LoginActivity::class.java)
                 startActivity(mainIntent)
                 finish()

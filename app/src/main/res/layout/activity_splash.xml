@@ -2,6 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
+
         <variable
             name="splashVM"
             type="com.dhenu.app.ui.splash.SplashViewModel" />
@@ -26,7 +27,18 @@
             android:fontFamily="@font/app_font_bold"
             android:gravity="center"
             android:lineSpacingExtra="@dimen/dp_5"
-            android:text="Welcome to the Encoresky \n Happy Coding :)"
+            android:text="Dhenu Shree"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size24" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_10"
+            android:fontFamily="@font/app_font_bold"
+            android:gravity="center"
+            android:lineSpacingExtra="@dimen/dp_5"
+            android:text="!! जय श्री गणेश !!"
             android:textColor="@color/black"
             android:textSize="@dimen/text_size24" />
 

@@ -6,7 +6,6 @@ import com.dhenu.app.data.local.PreferenceKeys
 import com.dhenu.app.databinding.ActivityLoginBinding
 import com.dhenu.app.ui.base.BaseViewModel
 import com.dhenu.app.ui.login.response.LoginResponse
-import com.dhenu.app.util.CommonUtils
 import com.dhenu.app.util.NetworkResponseCallback
 import com.google.gson.Gson
 
@@ -34,17 +33,17 @@ class LoginViewModel : BaseViewModel<LoginNavigator>() {
     fun checkEmailPassword(viewDataBinding: ActivityLoginBinding): Boolean {
         isEmail = true
         if (viewDataBinding.emailEt.text!!.trim().isEmpty()) {
-            navigator!!.showValidationError(navigator!!.getStringResource(R.string.please_enter_email))
+            navigator!!.showValidationError("Please enter user name")
             viewDataBinding.emailEt.requestFocus()
             //viewDataBinding!!.emailLayout.error=navigator!!.getStringResource(R.string.please_enter_email)
             return false
         }
-        if (!CommonUtils.isEmailValid(viewDataBinding.emailEt.text!!.trim().toString())) {
-            navigator!!.showValidationError(navigator!!.getStringResource(R.string.enter_correct_email))
-            viewDataBinding.emailEt.requestFocus()
-            // viewDataBinding!!.emailLayout.error=navigator!!.getStringResource(R.string.enter_correct_email)
-            return false
-        }
+//        if (!CommonUtils.isEmailValid(viewDataBinding.emailEt.text!!.trim().toString())) {
+//            navigator!!.showValidationError(navigator!!.getStringResource(R.string.enter_correct_email))
+//            viewDataBinding.emailEt.requestFocus()
+//            // viewDataBinding!!.emailLayout.error=navigator!!.getStringResource(R.string.enter_correct_email)
+//            return false
+//        }
         if (viewDataBinding.passwordEt.text!!.trim().isEmpty()) {
             // viewDataBinding!!.emailLayout.error=null
             navigator!!.showValidationError(navigator!!.getStringResource(R.string.please_enter_password))
@@ -52,21 +51,21 @@ class LoginViewModel : BaseViewModel<LoginNavigator>() {
             //  viewDataBinding!!.passwordEtLayout.error=navigator!!.getStringResource(R.string.please_enter_password)
             return false
         }
-        if ((viewDataBinding.passwordEt.text!!.toString()
-                .trim().length < 6) || (viewDataBinding.passwordEt.text!!.toString()
-                .trim().length > 12)
-        ) {
-            navigator!!.showValidationError(navigator!!.getStringResource(R.string.password_length))
-            viewDataBinding.passwordEt.requestFocus()
-            // viewDataBinding!!.passwordEtLayout.error=navigator!!.getStringResource(R.string.password_length)
-            return false
-        }
-        if (!CommonUtils.checkPassword(viewDataBinding.passwordEt.text!!.trim().toString())) {
-            navigator!!.showValidationError(navigator!!.getStringResource(R.string.validate_password))
-            viewDataBinding.passwordEt.requestFocus()
-            // viewDataBinding!!.passwordEtLayout.error=navigator!!.getStringResource(R.string.validate_password)
-            return false
-        }
+//        if ((viewDataBinding.passwordEt.text!!.toString()
+//                .trim().length < 6) || (viewDataBinding.passwordEt.text!!.toString()
+//                .trim().length > 12)
+//        ) {
+//            navigator!!.showValidationError(navigator!!.getStringResource(R.string.password_length))
+//            viewDataBinding.passwordEt.requestFocus()
+//            // viewDataBinding!!.passwordEtLayout.error=navigator!!.getStringResource(R.string.password_length)
+//            return false
+//        }
+//        if (!CommonUtils.checkPassword(viewDataBinding.passwordEt.text!!.trim().toString())) {
+//            navigator!!.showValidationError(navigator!!.getStringResource(R.string.validate_password))
+//            viewDataBinding.passwordEt.requestFocus()
+//            // viewDataBinding!!.passwordEtLayout.error=navigator!!.getStringResource(R.string.validate_password)
+//            return false
+//        }
 
         return true
     }
@@ -81,15 +80,16 @@ class LoginViewModel : BaseViewModel<LoginNavigator>() {
 
                     override fun onResponse(data: LoginResponse) {
                         navigator!!.hideProgress()
-                       // if (data.isSuccess) {
+                        println(">>>>>>>> $data")
+                        // if (data.isSuccess) {
 
-                            val userString = Gson().toJson(data.data)
-                            AppPreference.addValue(PreferenceKeys.USER_DATA, userString)
-//                                AppPreference.addValue(
-//                                    PreferenceKeys.ACCESS_TOKEN,
-//                                    data.data?.authorization!!
-//                                )
-                            navigator!!.loginSuccess(data)
+                        val userString = Gson().toJson(data.authToken)
+                        AppPreference.addValue(PreferenceKeys.USER_DATA, userString)
+                        AppPreference.addValue(
+                            PreferenceKeys.ACCESS_TOKEN,
+                            data.authToken
+                        )
+                        navigator!!.loginSuccess(data)
 
 
 //                        } else {
@@ -133,15 +133,12 @@ class LoginViewModel : BaseViewModel<LoginNavigator>() {
     ): HashMap<String, Any> {
 
         val requestMap: HashMap<String, Any> = HashMap()
-        requestMap["username"] = "kminchelle"
-        requestMap["password"] = "0lelplR"
 
-//        requestMap["email"] = viewDataBinding?.emailEt?.text.toString()
-//        requestMap["password"] = viewDataBinding?.passwordEt?.text.toString()
+        requestMap["UserName"] = viewDataBinding?.emailEt?.text.toString()
+        requestMap["Password"] = viewDataBinding?.passwordEt?.text.toString()
 //        requestMap["device_id"] = AppPreference.getValue(PreferenceKeys.DEVICE_ID).toString()
 //        requestMap["device_type"] = AppConstants.DEVICE_TYPE
 //        requestMap["certification_type"] = AppConstants.CERTIFICATE_TYPE
-
         return requestMap
     }
 

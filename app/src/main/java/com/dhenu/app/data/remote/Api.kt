@@ -10,7 +10,7 @@ interface Api {
     @POST("signup")
     fun userSignUp(@Body map: Map<String, @JvmSuppressWildcards Any>): Observable<SignUpResponse>
 
-    @POST("auth/login")
+    @POST("account/login")
     fun loginApi(@Body map: Map<String, @JvmSuppressWildcards Any>): Observable<LoginResponse>
 
     @POST("logout")

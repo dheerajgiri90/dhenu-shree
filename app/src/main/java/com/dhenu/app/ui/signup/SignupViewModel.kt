@@ -128,11 +128,11 @@ class SignupViewModel : BaseViewModel<SignupNavigator>() {
 
                     override fun onResponse(data: SignUpResponse) {
                         navigator!!.hideProgress()
-                        if (data.isSuccess) {
-                            navigator!!.signupSuccess(data)
-                        } else {
-                            navigator!!.hideProgress()
-                        }
+//                        if (data.isSuccess) {
+//                            navigator!!.signupSuccess(data)
+//                        } else {
+//                            navigator!!.hideProgress()
+//                        }
                     }
 
                     override fun onFailure(message: String) {

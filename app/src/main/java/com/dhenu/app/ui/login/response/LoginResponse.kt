@@ -15,11 +15,11 @@ import java.util.*
 
 class LoginResponse : BaseResponse<LoginResponse, String, Any>() {
 
-    @SerializedName("message")
+    @SerializedName("ResponseMessage")
     var message: String = ""
 
-    @SerializedName("data")
-    lateinit var data: UserData
+    @SerializedName("AuthToken")
+    lateinit var authToken: String
 
     override fun doNetworkRequest(
         requestParam: HashMap<String, Any>,
