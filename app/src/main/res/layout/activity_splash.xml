@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="splashVM"
+            type="com.dhenu.app.ui.splash.SplashViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="@dimen/dp_150"
+            android:layout_height="@dimen/dp_150"
+            android:layout_gravity="center"
+            android:background="@mipmap/ic_logo" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_30"
+            android:fontFamily="@font/app_font_bold"
+            android:gravity="center"
+            android:lineSpacingExtra="@dimen/dp_5"
+            android:text="Welcome to the Encoresky \n Happy Coding :)"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size24" />
+
+    </LinearLayout>
+</layout>

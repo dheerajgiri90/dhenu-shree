@@ -1,0 +1,26 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Base.Theme.AndroidTemplate" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:windowDisablePreview">true</item>
+        <item name="android:windowAllowEnterTransitionOverlap">false</item>
+    </style>
+
+    <style name="Theme.AndroidTemplate" parent="Base.Theme.AndroidTemplate" />
+
+    <style name="MyApplicationDialog" parent="@style/Theme.AppCompat.NoActionBar" />
+
+    <style name="TextLabel" parent="TextAppearance.Design.Hint">
+        <item name="android:textSize">@dimen/text_size14</item>
+        <item name="android:textColor">@color/colorAccent</item>
+    </style>
+
+    <style name="BottomNavigationView">
+        <item name="fontFamily">@font/app_font_medium</item> <!--avenir_next_regular-->
+    </style>
+
+
+</resources>

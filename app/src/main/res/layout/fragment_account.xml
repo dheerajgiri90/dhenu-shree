@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="accountViewModel"
+            type="com.dhenu.app.ui.account.AccountViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:fontFamily="@font/app_font_bold"
+            android:padding="@dimen/dp_15"
+            android:text="@string/account"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size18" />
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fadingEdge="none"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:orientation="vertical">
+
+
+                <ImageView
+                    android:id="@+id/imageProfileImage"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/rounded_image"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/ic_logo"
+                    android:clipToOutline="true"
+                    android:layout_marginTop="@dimen/dp_30" />
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/dp_15"
+                    android:fontFamily="@font/app_font_medium"
+                    android:gravity="center_vertical"
+                    android:text="Harry Porter"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size16" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/dp_30"
+                    android:background="@drawable/dr_bg_white_curve"
+                    android:orientation="vertical"
+                    android:paddingTop="@dimen/dp_30"
+                    android:paddingStart="@dimen/dp_10"
+                    android:paddingEnd="@dimen/dp_10"
+                    android:paddingBottom="@dimen/dp_30">
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="@dimen/dp_15"
+                        android:fontFamily="@font/app_font_medium"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/dp_15"
+                        android:text="@string/notifications"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size16" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginStart="@dimen/dp_20"
+                        android:background="@color/gray_line" />
+
+                    <TextView
+                        android:id="@+id/textChangePassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_5"
+                        android:drawablePadding="@dimen/dp_15"
+                        android:fontFamily="@font/app_font_medium"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/dp_15"
+                        android:text="@string/change_password"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size16" />
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginStart="@dimen/dp_20"
+                        android:background="@color/gray_line" />
+
+                    <TextView
+                        android:id="@+id/textSetting"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_5"
+                        android:drawablePadding="@dimen/dp_15"
+                        android:fontFamily="@font/app_font_medium"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/dp_15"
+                        android:text="@string/setting"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size16" />
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginStart="@dimen/dp_20"
+                        android:background="@color/gray_line" />
+
+                    <TextView
+                        android:id="@+id/textPrivacyPolicy"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_5"
+                        android:drawablePadding="@dimen/dp_15"
+                        android:fontFamily="@font/app_font_medium"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/dp_15"
+                        android:text="@string/privacy_policy"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size16" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginStart="@dimen/dp_20"
+                        android:background="@color/gray_line" />
+
+                    <TextView
+                        android:id="@+id/textViewLogout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_5"
+                        android:drawablePadding="@dimen/dp_15"
+                        android:fontFamily="@font/app_font_medium"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/dp_15"
+                        android:text="@string/logout"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size16" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginStart="@dimen/dp_10"
+                        android:background="@color/gray_line"
+                        android:visibility="invisible" />
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+</layout>
