@@ -61,52 +61,52 @@
         <activity
             android:name="com.dhenu.app.ui.navigation.NavigationActivity"
             android:exported="false" />
-<!--        <activity-->
-<!--            android:name="com.dhenu.app.ui.customer.customerlist.CustomerListActivity"-->
-<!--            android:exported="false" />-->
-<!--        <activity-->
-<!--            android:name="com.dhenu.app.ui.businessman.BusinessManActivity"-->
-<!--            android:exported="false" />-->
+        <!--        <activity-->
+        <!--            android:name="com.dhenu.app.ui.customer.customerlist.CustomerListActivity"-->
+        <!--            android:exported="false" />-->
+        <!--        <activity-->
+        <!--            android:name="com.dhenu.app.ui.businessman.BusinessManActivity"-->
+        <!--            android:exported="false" />-->
 
-<!--        <activity-->
-<!--            android:name=".ui.items.ItemsListActivity"-->
-<!--            android:exported="false" />-->
+        <!--        <activity-->
+        <!--            android:name=".ui.items.ItemsListActivity"-->
+        <!--            android:exported="false" />-->
 
-<!--        <activity-->
-<!--            android:name=".ui.mortgage.addmortgage.AddMortgageActivity"-->
-<!--            android:exported="false" />-->
+        <!--        <activity-->
+        <!--            android:name=".ui.mortgage.addmortgage.AddMortgageActivity"-->
+        <!--            android:exported="false" />-->
 
-<!--        <activity-->
-<!--            android:name=".ui.mortgage.getmortgage.MortgageListActivity"-->
-<!--            android:exported="false" />-->
+        <!--        <activity-->
+        <!--            android:name=".ui.mortgage.getmortgage.MortgageListActivity"-->
+        <!--            android:exported="false" />-->
 
-<!--        <activity-->
-<!--            android:name=".ui.mortgage.mortgageoption.MortgageOptionActivity"-->
-<!--            android:exported="false" />-->
+        <activity
+            android:name=".ui.mortgage.mortgageoption.MortgageOptionActivity"
+            android:exported="false" />
 
-<!--        <activity-->
-<!--            android:name=".ui.mortgage.mortgagedetail.MortgageDetailActivity"-->
-<!--            android:exported="false" />-->
+        <!--        <activity-->
+        <!--            android:name=".ui.mortgage.mortgagedetail.MortgageDetailActivity"-->
+        <!--            android:exported="false" />-->
 
-<!--        <activity-->
-<!--            android:name=".ui.village.VillageListActivity"-->
-<!--            android:exported="false" />-->
+        <activity
+            android:name=".ui.village.VillageListActivity"
+            android:exported="false" />
 
-<!--        <activity-->
-<!--            android:name=".ui.customer.addcustomer.AddCustomerActivity"-->
-<!--            android:exported="false" />-->
+        <!--        <activity-->
+        <!--            android:name=".ui.customer.addcustomer.AddCustomerActivity"-->
+        <!--            android:exported="false" />-->
 
-<!--        <activity-->
-<!--            android:name=".ui.exchange.exchangelist.ExchangeListActivity"-->
-<!--            android:exported="false" />-->
+        <!--        <activity-->
+        <!--            android:name=".ui.exchange.exchangelist.ExchangeListActivity"-->
+        <!--            android:exported="false" />-->
 
-<!--        <activity-->
-<!--            android:name=".ui.exchange.exchangedetail.ExchangeDetailActivity"-->
-<!--            android:exported="false" />-->
+        <!--        <activity-->
+        <!--            android:name=".ui.exchange.exchangedetail.ExchangeDetailActivity"-->
+        <!--            android:exported="false" />-->
 
-<!--        <activity-->
-<!--            android:name=".ui.exchange.searchexchange.SearchExchangeActivity"-->
-<!--            android:exported="false" />-->
+        <!--        <activity-->
+        <!--            android:name=".ui.exchange.searchexchange.SearchExchangeActivity"-->
+        <!--            android:exported="false" />-->
     </application>
 
 </manifest>

@@ -11,6 +11,7 @@ import com.dhenu.app.R
 import com.dhenu.app.databinding.ActivityNavigationBinding
 import com.dhenu.app.ui.account.AccountFragment
 import com.dhenu.app.ui.base.BaseActivity
+import com.dhenu.app.ui.entry.EntryFragment
 import com.dhenu.app.ui.home.HomeFragment
 import com.dhenu.app.util.CommonUtils
 
@@ -52,7 +53,7 @@ class NavigationActivity : BaseActivity<ActivityNavigationBinding, NavigationVie
                 }
 
                 R.id.navigation_message -> run {
-                    setCurrentFragment(HomeFragment(), "एंट्री")
+                    setCurrentFragment(EntryFragment(), "एंट्री")
 
                 }
 

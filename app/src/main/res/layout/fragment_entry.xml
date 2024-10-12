@@ -4,8 +4,8 @@
     <data>
 
         <variable
-            name="homeViewModel"
-            type="com.dhenu.app.ui.home.HomeViewModel" />
+            name="entryViewModel"
+            type="com.dhenu.app.ui.entry.EntryViewModel" />
     </data>
 
     <LinearLayout
@@ -49,14 +49,14 @@
                     android:textSize="@dimen/text_size30" /> <!-- Bigger text size -->
 
                 <TextView
-                    android:id="@+id/textMortgage"
+                    android:id="@+id/textAddVillage"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp_30"
                     android:background="@drawable/dr_edittext_background"
                     android:gravity="center"
                     android:padding="@dimen/dp_25"
-                    android:text="गिरवी"
+                    android:text="गांव जोडना"
                     android:textColor="@color/black"
                     android:textSize="@dimen/text_size20" />
 
@@ -67,7 +67,7 @@
                     android:background="@drawable/dr_edittext_background"
                     android:gravity="center"
                     android:padding="@dimen/dp_25"
-                    android:text="करियेदार"
+                    android:text="आइटम के नाम जोड़ना"
                     android:textColor="@color/black"
                     android:textSize="@dimen/text_size20" />
 
@@ -89,7 +89,7 @@
                     android:background="@drawable/dr_edittext_background"
                     android:gravity="center"
                     android:padding="@dimen/dp_25"
-                    android:text="धेनु श्री ज्वैलर्स"
+                    android:text="आइटम के नाम जोड़ना"
                     android:textColor="@color/black"
                     android:textSize="@dimen/text_size20" />
 

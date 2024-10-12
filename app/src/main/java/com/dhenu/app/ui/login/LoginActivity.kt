@@ -26,7 +26,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>(), Logi
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        window.statusBarColor = ContextCompat.getColor(this@LoginActivity, R.color.transparent)
+        //window.statusBarColor = ContextCompat.getColor(this@LoginActivity, R.color.white)
         viewModel.navigator = this
         init()
     }

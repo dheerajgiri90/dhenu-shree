@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
 
@@ -13,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fadingEdge="none"
+        android:background="@color/screen_bg"
         android:fillViewport="true">
 
         <RelativeLayout
@@ -20,93 +20,53 @@
             android:layout_height="match_parent">
 
             <LinearLayout
+                android:background="@drawable/dr_edittext_background"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:gravity="center_vertical"
+                android:layout_margin="@dimen/dp_10"
+                android:layout_centerInParent="true"
+                android:gravity="center"
                 android:orientation="vertical"
-                android:paddingLeft="@dimen/dp_30"
-                android:paddingRight="@dimen/dp_30"
-                android:paddingBottom="@dimen/dp_10">
+                android:padding="@dimen/dp_40">
 
                 <ImageView
-                    android:layout_width="@dimen/dp_150"
-                    android:layout_height="@dimen/dp_150"
+                    android:layout_width="@dimen/dp_200"
+                    android:layout_height="@dimen/dp_200"
                     android:layout_gravity="center"
-                    android:background="@mipmap/ic_logo" />
+                    android:src="@mipmap/ic_logo" />
 
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/email_Layout"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                <EditText
+                    android:layout_marginTop="@dimen/dp_30"
+                    android:id="@+id/email_et"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@drawable/dr_edittext_background"
+                    android:focusableInTouchMode="true"
+                    android:fontFamily="@font/app_font_regular"
+                    android:hint="User Name"
+                    android:padding="@dimen/dp_20"
+                    android:imeOptions="actionNext"
+                    android:maxLength="50"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size16" /> <!-- Larger text size -->
+
+                <EditText
                     android:layout_marginTop="@dimen/dp_25"
-                    android:visibility="visible"
-                    app:boxBackgroundColor="@color/transparent"
-                    app:boxStrokeColor="@color/gray_line"
-                    app:boxStrokeWidth="0.5dp"
-                    app:errorEnabled="true"
-                    app:errorIconDrawable="@null"
-                    app:errorTextColor="@color/colorPrimary"
-                    app:hintTextAppearance="@style/TextLabel"
-                    app:hintTextColor="@color/black">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/email_et"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:focusableInTouchMode="true"
-                        android:fontFamily="@font/app_font_regular"
-                        android:hint="User Name"
-                        android:imeOptions="actionNext"
-                        android:maxLength="50"
-                        android:paddingStart="0dp"
-                        android:paddingTop="@dimen/dp_30"
-                        android:paddingEnd="0dp"
-                        android:singleLine="true"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/text_size14" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/passwordEtLayout"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                    android:background="@drawable/dr_edittext_background"
+                    android:id="@+id/password_et"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dp_10"
-                    app:boxBackgroundColor="@color/transparent"
-                    app:boxStrokeColor="@color/gray_line"
-                    app:boxStrokeWidth="0.5dp"
-                    app:errorEnabled="true"
-                    app:errorIconDrawable="@null"
-                    app:errorTextColor="@color/colorPrimary"
-                    app:hintTextAppearance="@style/TextLabel"
-                    app:hintTextColor="@color/black"
-                    app:passwordToggleEnabled="true">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/password_et"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/app_font_regular"
-                        android:hint="@string/password"
-                        android:imeOptions="actionDone"
-                        android:inputType="textPassword"
-                        android:maxLength="25"
-                        android:paddingStart="0dp"
-                        android:paddingTop="@dimen/dp_30"
-                        android:paddingEnd="0dp"
-                        android:textColor="@color/black"
-                        android:textColorHint="@color/black"
-                        android:textSize="@dimen/text_size14">
-
-                    </com.google.android.material.textfield.TextInputEditText>
-                </com.google.android.material.textfield.TextInputLayout>
-
+                    android:fontFamily="@font/app_font_regular"
+                    android:hint="@string/password"
+                    android:imeOptions="actionDone"
+                    android:inputType="textPassword"
+                    android:maxLength="25"
+                    android:padding="@dimen/dp_20"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size16" /> <!-- Larger text size -->
 
                 <TextView
                     android:layout_width="match_parent"
@@ -114,29 +74,27 @@
                     android:fontFamily="@font/app_font_regular"
                     android:gravity="end"
                     android:onClick="@{()->loginViewModel.onclickForgotPassword()}"
-                    android:paddingTop="@dimen/dp_20"
-                    android:paddingBottom="@dimen/dp_10"
+                    android:paddingTop="@dimen/dp_30"
+                    android:paddingBottom="@dimen/dp_15"
                     android:text="@string/forgot_password"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="@dimen/text_size14" />
-
+                    android:textSize="@dimen/text_size16" /> <!-- Slightly larger text -->
 
                 <TextView
                     android:id="@+id/loginBtnTxt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dp_25"
+                    android:layout_marginTop="@dimen/dp_30"
                     android:background="@drawable/dr_app_theme_btn_bg"
                     android:fontFamily="@font/app_font_regular"
                     android:gravity="center"
-                    android:padding="@dimen/dp_15"
+                    android:padding="@dimen/dp_20"
                     android:text="@string/sign_in"
                     android:textAllCaps="true"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/text_size14" />
+                    android:textSize="@dimen/text_size16" /> <!-- Larger button text -->
 
             </LinearLayout>
-
 
         </RelativeLayout>
     </androidx.core.widget.NestedScrollView>

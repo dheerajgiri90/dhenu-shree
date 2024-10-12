@@ -1,25 +1,25 @@
-package com.dhenu.app.ui.home
+package com.dhenu.app.ui.entry
 
 import android.content.Context
 import android.os.Bundle
 import android.view.View
 import com.dhenu.app.BR
 import com.dhenu.app.R
-import com.dhenu.app.databinding.FragmentHomeBinding
+import com.dhenu.app.databinding.FragmentEntryBinding
 import com.dhenu.app.ui.base.BaseFragment
-import com.dhenu.app.ui.mortgage.mortgageoption.MortgageOptionActivity
+import com.dhenu.app.ui.village.VillageListActivity
 import com.dhenu.app.util.ActivityNavigator
 import com.dhenu.app.util.DataBinding
 
-class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(), HomeNavigator {
+class EntryFragment : BaseFragment<FragmentEntryBinding, EntryViewModel>(), EntryNavigator {
 
     override val bindingVariable: Int
-        get() = BR.homeViewModel
+        get() = BR.entryViewModel
 
     override val layoutId: Int
-        get() = R.layout.fragment_home
+        get() = R.layout.fragment_entry
 
-    override val viewModel = HomeViewModel()
+    override val viewModel = EntryViewModel()
 
     private var mContext: Context? = null
 
@@ -41,8 +41,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(), HomeNav
 
     override fun init() {
 
-        DataBinding.onSingleClick(viewDataBinding!!.textMortgage) {
-            ActivityNavigator.startActivity(requireActivity(), MortgageOptionActivity::class.java)
+        DataBinding.onSingleClick(viewDataBinding!!.textAddVillage) {
+            ActivityNavigator.startActivity(requireActivity(), VillageListActivity::class.java)
         }
 
     }
