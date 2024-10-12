@@ -7,6 +7,8 @@ import com.dhenu.app.BR
 import com.dhenu.app.R
 import com.dhenu.app.databinding.FragmentEntryBinding
 import com.dhenu.app.ui.base.BaseFragment
+import com.dhenu.app.ui.businessman.BusinessManActivity
+import com.dhenu.app.ui.items.ItemsListActivity
 import com.dhenu.app.ui.village.VillageListActivity
 import com.dhenu.app.util.ActivityNavigator
 import com.dhenu.app.util.DataBinding
@@ -43,6 +45,18 @@ class EntryFragment : BaseFragment<FragmentEntryBinding, EntryViewModel>(), Entr
 
         DataBinding.onSingleClick(viewDataBinding!!.textAddVillage) {
             ActivityNavigator.startActivity(requireActivity(), VillageListActivity::class.java)
+        }
+
+        DataBinding.onSingleClick(viewDataBinding!!.textAddCustomer) {
+            ActivityNavigator.startActivity(requireActivity(), VillageListActivity::class.java)
+        }
+
+        DataBinding.onSingleClick(viewDataBinding!!.textAddBusinessman) {
+            ActivityNavigator.startActivity(requireActivity(), BusinessManActivity::class.java)
+        }
+
+        DataBinding.onSingleClick(viewDataBinding!!.textAddItems) {
+            ActivityNavigator.startActivity(requireActivity(), ItemsListActivity::class.java)
         }
 
     }

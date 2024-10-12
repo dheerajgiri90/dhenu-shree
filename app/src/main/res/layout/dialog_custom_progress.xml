@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/app_font_regular"
         android:padding="@dimen/dp_5"
-        android:text="@string/loading"
+        android:text="लोड हो रहा है"
         android:textColor="@color/colorPrimary"
         android:textSize="@dimen/text_size18"
         android:visibility="visible" />

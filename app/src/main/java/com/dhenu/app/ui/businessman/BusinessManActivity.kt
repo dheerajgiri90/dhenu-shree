@@ -1,4 +1,4 @@
-package com.dhenu.app.ui.village
+package com.dhenu.app.ui.businessman
 
 import android.app.Dialog
 import android.graphics.Color
@@ -15,26 +15,27 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.dhenu.app.BR
 import com.dhenu.app.R
 import com.dhenu.app.data.ListData
-import com.dhenu.app.databinding.ActivityCommonListBinding
+import com.dhenu.app.databinding.ActivityBusinessmanListBinding
+import com.dhenu.app.databinding.ActivityItemsListBinding
 import com.dhenu.app.databinding.DialogAddVillageBinding
 import com.dhenu.app.ui.base.BaseActivity
+import com.dhenu.app.ui.businessman.response.AddBusinessManResponse
+import com.dhenu.app.ui.businessman.response.BusinessManListResponse
 import com.dhenu.app.ui.village.adapter.VillageListAdapter
-import com.dhenu.app.ui.village.response.AddVillageResponse
-import com.dhenu.app.ui.village.response.VillageListResponse
 import com.dhenu.app.util.CommonUtils
 import com.dhenu.app.util.DataBinding
 import java.util.Objects
 
-class VillageListActivity : BaseActivity<ActivityCommonListBinding, VillageListViewModel>(),
-    VillageListNavigator {
+class BusinessManActivity : BaseActivity<ActivityBusinessmanListBinding, BusinessManViewModel>(),
+    BusinessManNavigator {
 
     override val bindingVariable: Int
         get() = BR.commonListVM
 
     override val layoutId: Int
-        get() = R.layout.activity_common_list
+        get() = R.layout.activity_businessman_list
 
-    override val viewModel = VillageListViewModel()
+    override val viewModel = BusinessManViewModel()
 
     var mAdapter: VillageListAdapter? = null
     var arrayList: ArrayList<ListData> = ArrayList()
@@ -100,14 +101,14 @@ class VillageListActivity : BaseActivity<ActivityCommonListBinding, VillageListV
         }
     }
 
-    override fun villageListResponse(response: VillageListResponse) {
+    override fun businessManListResponse(response: BusinessManListResponse) {
         arrayList.clear()
         arrayList.addAll(response.data)
         mAdapter!!.notifyDataSetChanged()
 
     }
 
-    override fun addVillageResponse(response: AddVillageResponse) {
+    override fun addBusinessManResponse(response: AddBusinessManResponse) {
 
         CommonUtils.showMessage(response.message, this)
         if (checkIfInternetOnDialog(tryAgainClick = {
@@ -121,7 +122,8 @@ class VillageListActivity : BaseActivity<ActivityCommonListBinding, VillageListV
     override fun init() {
 
         viewDataBinding!!.toolbar.stepBackButton.setOnClickListener { finish() }
-        viewDataBinding!!.toolbar.toolBarHeading.text = "गांव का नाम"
+        viewDataBinding!!.toolbar.toolBarHeading.text = "व्यापारी"
+
         viewDataBinding!!.recyclerView.layoutManager = LinearLayoutManager(this)
 
         mAdapter = VillageListAdapter(this, arrayList,

@@ -3,13 +3,13 @@ package com.dhenu.app.ui.village.adapter
 import android.content.Context
 import android.view.ViewGroup
 import com.dhenu.app.R
+import com.dhenu.app.data.ListData
 import com.dhenu.app.databinding.ItemVillageListBinding
 import com.dhenu.app.ui.base.BaseRecyclerAdapter
-import com.dhenu.app.ui.village.response.VillageListResponse.VillageData
 
 class VillageListAdapter(
     private val context: Context,
-    private val list: ArrayList<VillageData>,
+    private val list: ArrayList<ListData>,
     private val onItemClick: (position: Int) -> Unit,
     private val onEditClick: (position: Int) -> Unit
 ) :

@@ -64,13 +64,13 @@
         <!--        <activity-->
         <!--            android:name="com.dhenu.app.ui.customer.customerlist.CustomerListActivity"-->
         <!--            android:exported="false" />-->
-        <!--        <activity-->
-        <!--            android:name="com.dhenu.app.ui.businessman.BusinessManActivity"-->
-        <!--            android:exported="false" />-->
+        <activity
+            android:name="com.dhenu.app.ui.businessman.BusinessManActivity"
+            android:exported="false" />
 
-        <!--        <activity-->
-        <!--            android:name=".ui.items.ItemsListActivity"-->
-        <!--            android:exported="false" />-->
+        <activity
+            android:name=".ui.items.ItemsListActivity"
+            android:exported="false" />
 
         <!--        <activity-->
         <!--            android:name=".ui.mortgage.addmortgage.AddMortgageActivity"-->

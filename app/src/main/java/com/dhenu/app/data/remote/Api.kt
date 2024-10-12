@@ -1,4 +1,8 @@
 import com.dhenu.app.ui.account.response.LogoutResponse
+import com.dhenu.app.ui.businessman.response.AddBusinessManResponse
+import com.dhenu.app.ui.businessman.response.BusinessManListResponse
+import com.dhenu.app.ui.items.response.AddItemsResponse
+import com.dhenu.app.ui.items.response.ItemsListResponse
 import com.dhenu.app.ui.login.response.LoginResponse
 import com.dhenu.app.ui.signup.response.SignUpResponse
 import com.dhenu.app.ui.village.response.AddVillageResponse
@@ -25,6 +29,25 @@ interface Api {
 
     @GET("account/GetVillage")
     fun villageList(@QueryMap map: HashMap<String, Any>): Observable<VillageListResponse>
+
+
+    @POST("account/AddItem")
+    fun addItems(@Body map: Map<String, @JvmSuppressWildcards Any>): Observable<AddItemsResponse>
+
+    @POST("account/UpdateItem")
+    fun updateItems(@Body map: Map<String, @JvmSuppressWildcards Any>): Observable<AddItemsResponse>
+
+    @GET("account/GetItem")
+    fun getItems(@QueryMap map: HashMap<String, Any>): Observable<ItemsListResponse>
+
+    @POST("account/AddBusinessMan")
+    fun addBusinessMan(@Body map: Map<String, @JvmSuppressWildcards Any>): Observable<AddBusinessManResponse>
+
+    @POST("account/UpdateBusinessMan")
+    fun updateBusinessMan(@Body map: Map<String, @JvmSuppressWildcards Any>): Observable<AddBusinessManResponse>
+
+    @GET("account/GetBusinessMan")
+    fun getBusinessMan(@QueryMap map: HashMap<String, Any>): Observable<BusinessManListResponse>
 
     @POST("logout")
     fun logOut(): Observable<LogoutResponse>

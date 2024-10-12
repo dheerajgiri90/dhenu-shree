@@ -50,13 +50,13 @@
         android:layout_marginEnd="@dimen/dp_50"
         android:layout_marginBottom="@dimen/dp_10"
         android:background="@drawable/dr_app_theme_btn_bg"
-        android:fontFamily="@font/app_font_regular"
+        android:fontFamily="@font/app_font_bold"
         android:gravity="center"
         android:padding="@dimen/dp_20"
         android:text="सेव करे"
         android:textAllCaps="true"
         android:textColor="@color/white"
-        android:textSize="@dimen/text_size16" />
+        android:textSize="@dimen/text_size18" />
 
 
 </LinearLayout>

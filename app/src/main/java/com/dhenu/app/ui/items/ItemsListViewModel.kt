@@ -1,13 +1,13 @@
-package com.dhenu.app.ui.village
+package com.dhenu.app.ui.items
 
 import com.dhenu.app.data.local.AppPreference
 import com.dhenu.app.databinding.DialogAddVillageBinding
 import com.dhenu.app.ui.base.BaseViewModel
-import com.dhenu.app.ui.village.response.AddVillageResponse
-import com.dhenu.app.ui.village.response.VillageListResponse
+import com.dhenu.app.ui.items.response.AddItemsResponse
+import com.dhenu.app.ui.items.response.ItemsListResponse
 import com.dhenu.app.util.NetworkResponseCallback
 
-class VillageListViewModel : BaseViewModel<VillageListNavigator>() {
+class ItemsListViewModel : BaseViewModel<ItemsListNavigator>() {
 
     fun villageListAPI(searchKey: String) {
 
@@ -19,13 +19,13 @@ class VillageListViewModel : BaseViewModel<VillageListNavigator>() {
         }
 
         disposable.add(
-            VillageListResponse().doNetworkRequest(
+            ItemsListResponse().doNetworkRequest(
                 requestMap, AppPreference,
-                object : NetworkResponseCallback<VillageListResponse> {
+                object : NetworkResponseCallback<ItemsListResponse> {
 
-                    override fun onResponse(data: VillageListResponse) {
+                    override fun onResponse(data: ItemsListResponse) {
                         navigator!!.hideProgress()
-                        navigator!!.villageListResponse(data)
+                        navigator!!.itemListResponse(data)
                     }
 
                     override fun onFailure(message: String) {
@@ -83,12 +83,12 @@ class VillageListViewModel : BaseViewModel<VillageListNavigator>() {
         }
 
         disposable.add(
-            AddVillageResponse().doNetworkRequest(requestMap, isUpdate,
-                object : NetworkResponseCallback<AddVillageResponse> {
+            AddItemsResponse().doNetworkRequest(requestMap, isUpdate,
+                object : NetworkResponseCallback<AddItemsResponse> {
 
-                    override fun onResponse(data: AddVillageResponse) {
+                    override fun onResponse(data: AddItemsResponse) {
                         navigator!!.hideProgress()
-                        navigator!!.addVillageResponse(data)
+                        navigator!!.addItemsResponse(data)
 
                     }
 

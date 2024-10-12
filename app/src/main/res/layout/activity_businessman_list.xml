@@ -6,7 +6,7 @@
 
         <variable
             name="commonListVM"
-            type="com.dhenu.app.ui.village.VillageListViewModel" />
+            type="com.dhenu.app.ui.businessman.BusinessManViewModel" />
     </data>
 
     <LinearLayout

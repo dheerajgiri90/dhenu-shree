@@ -1,4 +1,4 @@
-package com.dhenu.app.ui.village.response
+package com.dhenu.app.ui.items.response
 
 import Api
 import com.dhenu.app.data.ListData
@@ -12,24 +12,24 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 
-class VillageListResponse : BaseResponse<VillageListResponse, String, Any>() {
+class ItemsListResponse : BaseResponse<ItemsListResponse, String, Any>() {
 
     @SerializedName("ResponseMessage")
     var message: String = ""
 
-    @SerializedName("Village")
+    @SerializedName("Item")
     var data = ArrayList<ListData>()
 
     override fun doNetworkRequest(
         requestParam: HashMap<String, Any>,
         vararg: Any,
-        networkResponseCallback: NetworkResponseCallback<VillageListResponse>
+        networkResponseCallback: NetworkResponseCallback<ItemsListResponse>
     ): Disposable {
 
         val api = ApiFactory.clientWithHeader.create(Api::class.java)
         Logger.e("requestParam>>>>>", "" + requestParam.toString())
 
-        return api.villageList(requestParam).subscribeOn(Schedulers.io())
+        return api.getItems(requestParam).subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(
                 { networkResponseCallback.onResponse(it) },
