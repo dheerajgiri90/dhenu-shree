@@ -1,6 +1,7 @@
 package com.dhenu.app.ui.village
 
 import android.app.Dialog
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
@@ -23,6 +24,7 @@ import com.dhenu.app.ui.village.response.AddVillageResponse
 import com.dhenu.app.ui.village.response.VillageListResponse
 import com.dhenu.app.util.CommonUtils
 import com.dhenu.app.util.DataBinding
+import com.dhenu.app.util.enums.IntentKeys
 import java.util.Objects
 
 class VillageListActivity : BaseActivity<ActivityCommonListBinding, VillageListViewModel>(),
@@ -126,6 +128,11 @@ class VillageListActivity : BaseActivity<ActivityCommonListBinding, VillageListV
 
         mAdapter = VillageListAdapter(this, arrayList,
             onItemClick = { index ->
+
+                val resultIntent = Intent()
+                resultIntent.putExtra(IntentKeys.VILLAGE_DATA.getKey(), arrayList.get(index))
+                setResult(RESULT_OK, resultIntent)
+                finish()
 
             }, onEditClick = { index ->
                 showAddDialog(arrayList.get(index))

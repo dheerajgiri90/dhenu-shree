@@ -1,6 +1,7 @@
 package com.dhenu.app.ui.businessman
 
 import android.app.Dialog
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
@@ -16,14 +17,15 @@ import com.dhenu.app.BR
 import com.dhenu.app.R
 import com.dhenu.app.data.ListData
 import com.dhenu.app.databinding.ActivityBusinessmanListBinding
-import com.dhenu.app.databinding.ActivityItemsListBinding
 import com.dhenu.app.databinding.DialogAddVillageBinding
 import com.dhenu.app.ui.base.BaseActivity
 import com.dhenu.app.ui.businessman.response.AddBusinessManResponse
 import com.dhenu.app.ui.businessman.response.BusinessManListResponse
+import com.dhenu.app.ui.exchange.exchangelist.ExchangeListActivity
 import com.dhenu.app.ui.village.adapter.VillageListAdapter
 import com.dhenu.app.util.CommonUtils
 import com.dhenu.app.util.DataBinding
+import com.dhenu.app.util.enums.IntentKeys
 import java.util.Objects
 
 class BusinessManActivity : BaseActivity<ActivityBusinessmanListBinding, BusinessManViewModel>(),
@@ -128,6 +130,9 @@ class BusinessManActivity : BaseActivity<ActivityBusinessmanListBinding, Busines
 
         mAdapter = VillageListAdapter(this, arrayList,
             onItemClick = { index ->
+                val resultIntent = Intent(this, ExchangeListActivity::class.java)
+                resultIntent.putExtra(IntentKeys.BUSINESS_DATA.getKey(), arrayList[index])
+                startActivity(resultIntent)
 
             }, onEditClick = { index ->
                 showAddDialog(arrayList.get(index))

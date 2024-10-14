@@ -5,6 +5,10 @@ import com.dhenu.app.BR
 import com.dhenu.app.R
 import com.dhenu.app.databinding.ActivityMortgageOptionBinding
 import com.dhenu.app.ui.base.BaseActivity
+import com.dhenu.app.ui.customer.customerlist.CustomerListActivity
+import com.dhenu.app.ui.mortgage.addmortgage.AddMortgageActivity
+import com.dhenu.app.util.ActivityNavigator
+import com.dhenu.app.util.DataBinding
 
 class MortgageOptionActivity :
     BaseActivity<ActivityMortgageOptionBinding, MortgageOptionViewModel>(),
@@ -24,10 +28,13 @@ class MortgageOptionActivity :
         viewModel.navigator = this
         init()
 
-//        DataBinding.onSingleClick(viewDataBinding!!.mortgageOption) {
-//            hideKeyboard()
-//
-//        }
+        DataBinding.onSingleClick(viewDataBinding!!.textAddMortgage) {
+            ActivityNavigator.startActivity(this, AddMortgageActivity::class.java)
+        }
+
+        DataBinding.onSingleClick(viewDataBinding!!.textMortgageList) {
+            ActivityNavigator.startActivity(this, CustomerListActivity::class.java)
+        }
     }
 
     override fun init() {

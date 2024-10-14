@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="mortgageDetailVM"
+            type="com.dhenu.app.ui.mortgage.mortgagedetail.MortgageDetailViewModel" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/screen_bg"
+        android:fadingEdge="none"
+        android:fillViewport="true">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <include
+                android:id="@+id/toolbar"
+                layout="@layout/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingStart="@dimen/dp_50"
+                android:paddingTop="@dimen/dp_20"
+                android:paddingEnd="@dimen/dp_50"
+                android:paddingBottom="@dimen/dp_20">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/dr_edittext_background"
+                    android:orientation="vertical"
+                    android:padding="@dimen/dp_15">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/textItemName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:focusableInTouchMode="true"
+                            android:fontFamily="@font/app_font_medium"
+                            android:singleLine="true"
+                            android:text="आइटम: Kada"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size18" />
+
+
+                        <TextView
+                            android:id="@+id/textWeight"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:focusableInTouchMode="true"
+                            android:fontFamily="@font/app_font_medium"
+                            android:singleLine="true"
+                            android:text="वज़न: Kada"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size18" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_15"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/textItemDescription"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:focusableInTouchMode="true"
+                            android:fontFamily="@font/app_font_medium"
+                            android:singleLine="true"
+                            android:text="आइटम: Kada"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size18" />
+
+
+                        <TextView
+                            android:id="@+id/textMortgageDate"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:focusableInTouchMode="true"
+                            android:fontFamily="@font/app_font_medium"
+                            android:singleLine="true"
+                            android:text="वज़न: Kada"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size18" />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_15"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/textItemAmount"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:focusableInTouchMode="true"
+                            android:fontFamily="@font/app_font_medium"
+                            android:singleLine="true"
+                            android:text="आइटम: Kada"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size18" />
+
+
+                        <TextView
+                            android:id="@+id/textEndDate"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:focusableInTouchMode="true"
+                            android:fontFamily="@font/app_font_medium"
+                            android:singleLine="true"
+                            android:text="वज़न: Kada"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size18" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_15"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/textVillageName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:focusableInTouchMode="true"
+                            android:fontFamily="@font/app_font_medium"
+                            android:singleLine="true"
+                            android:text="आइटम: Kada"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size18" />
+
+
+                        <TextView
+                            android:id="@+id/textMobileNumber"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:focusableInTouchMode="true"
+                            android:fontFamily="@font/app_font_medium"
+                            android:singleLine="true"
+                            android:text="वज़न: Kada"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size18" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/dp_20"
+                    android:fontFamily="@font/app_font_regular"
+                    android:hint="ब्याज दर %"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size16" />
+
+                <TextView
+                    android:id="@+id/textInterestRate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:background="@drawable/dr_edittext_background"
+                    android:fontFamily="@font/app_font_regular"
+                    android:hint="ब्याज दर %"
+                    android:maxLength="50"
+                    android:maxLines="1"
+                    android:padding="@dimen/dp_20"
+                    android:singleLine="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size16" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/dp_20"
+                    android:fontFamily="@font/app_font_regular"
+                    android:hint="ब्याज गणना तिथि"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size16" />
+
+                <TextView
+                    android:id="@+id/textTodayDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:background="@drawable/dr_edittext_background"
+                    android:fontFamily="@font/app_font_regular"
+                    android:hint="तारीख"
+                    android:maxLength="50"
+                    android:maxLines="1"
+                    android:padding="@dimen/dp_20"
+                    android:singleLine="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size16" />
+
+                <TextView
+                    android:id="@+id/textTotalAmount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/dp_20"
+                    android:background="@drawable/dr_edittext_background"
+                    android:focusableInTouchMode="true"
+                    android:fontFamily="@font/app_font_bold"
+                    android:gravity="center"
+                    android:padding="@dimen/dp_20"
+                    android:singleLine="true"
+                    android:text="Total Amount: ₹ 24,000"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/text_size22" />
+
+                <TextView
+                    android:id="@+id/textCloseMortgage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/dp_30"
+                    android:background="@drawable/dr_app_theme_btn_bg"
+                    android:fontFamily="@font/app_font_bold"
+                    android:gravity="center"
+                    android:paddingStart="@dimen/dp_10"
+                    android:paddingTop="@dimen/dp_20"
+                    android:paddingEnd="@dimen/dp_10"
+                    android:paddingBottom="@dimen/dp_20"
+                    android:text="गिरवी छुड़वाना"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size18" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

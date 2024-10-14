@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="addMortgageVM"
+            type="com.dhenu.app.ui.mortgage.addmortgage.AddMortgageViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/screen_bg"
+            android:fadingEdge="none"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="@dimen/dp_20">
+
+                <TextView
+                    android:id="@+id/textTodayDay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/app_font_bold"
+                    android:gravity="end"
+                    android:hint="Date: 12 Oct 2024"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size18" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/dp_20"
+                    android:fontFamily="@font/app_font_regular"
+                    android:hint="गांव का चयन करें"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size16" />
+
+                <TextView
+                    android:id="@+id/textSelectVillage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:background="@drawable/dr_edittext_background"
+                    android:fontFamily="@font/app_font_regular"
+                    android:hint="गांव"
+                    android:maxLength="50"
+                    android:maxLines="1"
+                    android:padding="@dimen/dp_20"
+                    android:singleLine="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size16" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/dp_20"
+                    android:fontFamily="@font/app_font_regular"
+                    android:hint="ग्राहक का चयन करें"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size16" />
+
+                <TextView
+                    android:id="@+id/textSelectCustomer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:background="@drawable/dr_edittext_background"
+                    android:fontFamily="@font/app_font_regular"
+                    android:hint="ग्राहक"
+                    android:maxLength="50"
+                    android:maxLines="1"
+                    android:padding="@dimen/dp_20"
+                    android:singleLine="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size16" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/dp_20"
+                    android:fontFamily="@font/app_font_regular"
+                    android:hint="रकम का चयन करें"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size16" />
+
+                <TextView
+                    android:id="@+id/textSelectItem"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:background="@drawable/dr_edittext_background"
+                    android:fontFamily="@font/app_font_regular"
+                    android:hint="रकम"
+                    android:maxLength="50"
+                    android:maxLines="1"
+                    android:padding="@dimen/dp_20"
+                    android:singleLine="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size16" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_20"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/dp_10"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/app_font_regular"
+                            android:hint="अमाउंट"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size16" />
+
+                        <EditText
+                            android:id="@+id/editItemAmount"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp_5"
+                            android:background="@drawable/dr_edittext_background"
+                            android:focusableInTouchMode="true"
+                            android:fontFamily="@font/app_font_regular"
+                            android:hint="अमाउंट डाले"
+                            android:imeOptions="actionNext"
+                            android:inputType="number"
+                            android:maxLength="50"
+                            android:maxLines="1"
+                            android:padding="@dimen/dp_20"
+                            android:singleLine="true"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size16" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="@dimen/dp_20"
+                            android:fontFamily="@font/app_font_regular"
+                            android:hint="ब्याज दर %"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size16" />
+
+                        <EditText
+                            android:id="@+id/editInterestRate"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp_5"
+                            android:background="@drawable/dr_edittext_background"
+                            android:focusableInTouchMode="true"
+                            android:fontFamily="@font/app_font_regular"
+                            android:imeOptions="actionNext"
+                            android:inputType="number"
+                            android:maxLength="50"
+                            android:maxLines="1"
+                            android:padding="@dimen/dp_20"
+                            android:singleLine="true"
+                            android:text="3"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size16" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="@dimen/dp_10"
+                        android:layout_marginTop="@dimen/dp_20"
+                        android:layout_weight="1"
+                        android:background="@drawable/dr_edittext_background"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="150dp"
+                            android:layout_height="150dp"
+                            android:background="@mipmap/ic_item_default" />
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/dp_20"
+                    android:fontFamily="@font/app_font_regular"
+                    android:hint="वज़न"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size16" />
+
+                <EditText
+                    android:id="@+id/editItemWeight"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:background="@drawable/dr_edittext_background"
+                    android:focusableInTouchMode="true"
+                    android:fontFamily="@font/app_font_regular"
+                    android:hint="वज़न डाले"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:maxLength="50"
+                    android:maxLines="1"
+                    android:padding="@dimen/dp_20"
+                    android:singleLine="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size16" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/dp_20"
+                    android:fontFamily="@font/app_font_regular"
+                    android:hint="डिस्क्रिप्शन"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size16" />
+
+                <EditText
+                    android:id="@+id/editItemDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:background="@drawable/dr_edittext_background"
+                    android:focusableInTouchMode="true"
+                    android:fontFamily="@font/app_font_regular"
+                    android:gravity="start"
+                    android:singleLine="true"
+                    android:maxLines="1"
+                    android:hint="डिस्क्रिप्शन दर्ज करें"
+                    android:imeOptions="actionNext"
+                    android:maxLength="50"
+                    android:padding="@dimen/dp_20"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size16" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/dp_20"
+                    android:fontFamily="@font/app_font_regular"
+                    android:hint="एंड डेट"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size16" />
+
+                <EditText
+                    android:id="@+id/editEndDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:background="@drawable/dr_edittext_background"
+                    android:focusableInTouchMode="true"
+                    android:fontFamily="@font/app_font_regular"
+                    android:gravity="start"
+                    android:singleLine="true"
+                    android:maxLines="1"
+                    android:hint="लास्ट डेट"
+                    android:imeOptions="actionNext"
+                    android:maxLength="50"
+                    android:padding="@dimen/dp_20"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size16" />
+
+
+                <TextView
+                    android:id="@+id/textSave"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_30"
+                    android:background="@drawable/dr_app_theme_btn_bg"
+                    android:fontFamily="@font/app_font_bold"
+                    android:gravity="center"
+                    android:padding="@dimen/dp_20"
+                    android:text="गिरवी जोड़ें"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size18" />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </LinearLayout>
+</layout>

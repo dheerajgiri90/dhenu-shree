@@ -24,7 +24,6 @@ import android.text.SpannableString
 import android.text.Spanned
 import android.text.TextUtils
 import android.text.style.UnderlineSpan
-import android.util.Base64
 import android.util.Log
 import android.util.Patterns
 import android.util.TypedValue
@@ -35,10 +34,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.content.ContextCompat
-import com.dhenu.app.BuildConfig
 import java.io.*
-import java.security.MessageDigest
-import java.security.NoSuchAlgorithmException
 import java.text.SimpleDateFormat
 import java.util.*
 import java.util.regex.Matcher
@@ -381,25 +377,6 @@ object CommonUtils {
         }
 
         return phrase.toString()
-    }
-
-    fun getKeyHash(context: Context) {
-        try {
-            val info = context.packageManager.getPackageInfo(
-                BuildConfig.APPLICATION_ID,
-                PackageManager.GET_SIGNATURES
-            )
-            for (signature in info.signatures) {
-                val md = MessageDigest.getInstance("SHA")
-                md.update(signature.toByteArray())
-                Log.e("KEY_HASH", Base64.encodeToString(md.digest(), Base64.DEFAULT))
-            }
-        } catch (e: PackageManager.NameNotFoundException) {
-            e.printStackTrace()
-        } catch (e: NoSuchAlgorithmException) {
-            e.printStackTrace()
-        }
-
     }
 
     /*** method for string validation ***/

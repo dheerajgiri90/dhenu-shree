@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="commonListVM"
+            type="com.dhenu.app.ui.customer.customerlist.CustomerListViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_15"
+            android:orientation="horizontal">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dp_15"
+                android:layout_toStartOf="@+id/textAddVillage"
+                android:layout_weight="3"
+                android:background="@drawable/dr_edittext_background">
+
+                <EditText
+                    android:id="@+id/searchField"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/transparent"
+                    android:fontFamily="@font/app_font_regular"
+                    android:hint="सर्च करे"
+                    android:imeOptions="actionDone"
+                    android:inputType="textPersonName"
+                    android:padding="@dimen/dp_15" />
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/imageCrossIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="end"
+                    android:background="@android:color/transparent"
+                    android:paddingStart="@dimen/dp_20"
+                    android:paddingEnd="@dimen/dp_20"
+                    android:src="@drawable/cancel_button_background"
+                    android:tint="@color/black"
+                    android:visibility="gone" />
+
+            </RelativeLayout>
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textAddVillage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_weight="7"
+                android:background="@drawable/dr_light_gray_bg"
+                android:fontFamily="@font/app_font_medium"
+                android:gravity="center"
+                android:padding="@dimen/dp_15"
+                android:text="नया ऐड करे"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size18"
+                android:visibility="visible" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textSelectVillage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_15"
+            android:layout_marginEnd="@dimen/dp_15"
+            android:hint="गांव का चयन करे"
+            android:drawablePadding="@dimen/dp_10"
+            android:textSize="@dimen/text_size18"
+            android:background="@drawable/dr_edittext_background"
+            android:fontFamily="@font/app_font_regular"
+            android:padding="@dimen/dp_15"
+            app:drawableEndCompat="@mipmap/ic_dropdown" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_20"
+            android:layout_marginEnd="@dimen/dp_10"
+            android:background="@color/white">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="visible"
+                tools:itemCount="5"
+                tools:listitem="@layout/item_village_list" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvNoRecord"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/app_font_medium"
+                android:text="No record found"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size18"
+                android:visibility="gone" />
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:padding="10dp"
+                android:visibility="gone" />
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+</layout>
