@@ -9,19 +9,28 @@ import com.dhenu.app.util.NetworkResponseCallback
 class MortgageListViewModel : BaseViewModel<MortgageListNavigator>() {
 
     var customerData: CustomerData? = null
+    var comeFrom: String? = ""
 
     fun getMortgageList(searchKey: String) {
 
         navigator!!.showProgress()
-
         val requestMap: HashMap<String, Any> = HashMap()
-        requestMap["name"] = ""
-        requestMap["villageid"] = customerData?.VillageId.toString()
-        requestMap["isclosed"] = ""
-        requestMap["isexchanged"] = ""
-        requestMap["mortgageid"] = ""
-        requestMap["customerid"] = customerData?.Id.toString()
 
+        if (comeFrom.equals("SELECT")) {
+            requestMap["name"] = ""
+            requestMap["villageid"] = ""
+            requestMap["isclosed"] = false
+            requestMap["isexchanged"] = false
+            requestMap["mortgageid"] = ""
+            requestMap["customerid"] = ""
+        } else {
+            requestMap["name"] = ""
+            requestMap["villageid"] = customerData?.VillageId.toString()
+            requestMap["isclosed"] = ""
+            requestMap["isexchanged"] = ""
+            requestMap["mortgageid"] = ""
+            requestMap["customerid"] = customerData?.Id.toString()
+        }
         disposable.add(
             MortgageListResponse().doNetworkRequest(requestMap,
                 AppPreference,

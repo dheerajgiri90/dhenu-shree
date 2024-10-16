@@ -1,6 +1,8 @@
 package com.dhenu.app.ui.exchange.exchangelist
 
+import android.app.Activity
 import android.app.Dialog
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
@@ -11,6 +13,7 @@ import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dhenu.app.BR
 import com.dhenu.app.R
@@ -19,6 +22,7 @@ import com.dhenu.app.databinding.ActivityExchangeListBinding
 import com.dhenu.app.databinding.DialogAddExchangeBinding
 import com.dhenu.app.ui.base.BaseActivity
 import com.dhenu.app.ui.exchange.adapter.ExchangeListAdapter
+import com.dhenu.app.ui.exchange.exchangedetail.ExchangeDetailActivity
 import com.dhenu.app.ui.exchange.response.AddExchangeResponse
 import com.dhenu.app.ui.exchange.response.ExchangeListResponse
 import com.dhenu.app.ui.exchange.response.ExchangeListResponse.ExchangeData
@@ -135,17 +139,29 @@ class ExchangeListActivity : BaseActivity<ActivityExchangeListBinding, ExchangeL
     override fun init() {
 
         viewDataBinding!!.toolbar.stepBackButton.setOnClickListener { finish() }
-        viewDataBinding!!.toolbar.toolBarHeading.text = "गांव का नाम"
+        viewDataBinding!!.toolbar.toolBarHeading.text = ""
         viewDataBinding!!.recyclerView.layoutManager = LinearLayoutManager(this)
 
         mAdapter = ExchangeListAdapter(this, arrayList,
             onItemClick = { index ->
+
+                val resultIntent = Intent(this, ExchangeDetailActivity::class.java)
+                resultIntent.putExtra(IntentKeys.EXCHANGE_DATA.getKey(), arrayList[index])
+                intentLauncher.launch(resultIntent)
 
             })
         viewDataBinding!!.recyclerView.setHasFixedSize(true)
         viewDataBinding!!.recyclerView.adapter = mAdapter
 
     }
+
+    private val intentLauncher =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == Activity.RESULT_OK) {
+
+            }
+        }
+
 
     private fun showAddDialog(data: ListData?) {
 

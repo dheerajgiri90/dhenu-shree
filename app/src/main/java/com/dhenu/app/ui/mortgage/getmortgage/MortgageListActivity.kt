@@ -37,6 +37,9 @@ class MortgageListActivity : BaseActivity<ActivityMortgageListBinding, MortgageL
         if (intent != null && intent.hasExtra(IntentKeys.CUSTOMER_DATA.getKey())) {
             viewModel.customerData = intent.getParcelableExtra("CUSTOMER_DATA")
         }
+        if (intent != null && intent.hasExtra(IntentKeys.COME_FROM.getKey())) {
+            viewModel.comeFrom = intent.getStringExtra(IntentKeys.COME_FROM.getKey())
+        }
 
         if (viewModel.customerData != null) {
             viewDataBinding!!.toolbar.toolBarHeading.text = viewModel.customerData?.Name.toString()
@@ -58,9 +61,20 @@ class MortgageListActivity : BaseActivity<ActivityMortgageListBinding, MortgageL
             onItemClick = { index ->
                 if (!arrayList[index].IsClosed) {
 
-                    val resultIntent = Intent(this, MortgageDetailActivity::class.java)
-                    resultIntent.putExtra(IntentKeys.MORTGAGE_DATA.getKey(), arrayList[index])
-                    mortgageDetailLauncher.launch(resultIntent)
+                    if (viewModel.comeFrom == "SELECT") {
+                        val resultIntent = Intent()
+                        resultIntent.putExtra(
+                            IntentKeys.MORTGAGE_DATA.getKey(),
+                            arrayList[index]
+                        )
+                        setResult(RESULT_OK, resultIntent)
+                        finish()
+                    } else {
+                        val resultIntent = Intent(this, MortgageDetailActivity::class.java)
+                        resultIntent.putExtra(IntentKeys.MORTGAGE_DATA.getKey(), arrayList[index])
+                        mortgageDetailLauncher.launch(resultIntent)
+                    }
+
 
                 } else {
                     showValidationError("पहले से ही क्लोज है ")

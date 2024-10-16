@@ -100,13 +100,17 @@
             android:name=".ui.exchange.exchangelist.ExchangeListActivity"
             android:exported="false" />
 
-        <!--        <activity-->
-        <!--            android:name=".ui.exchange.exchangedetail.ExchangeDetailActivity"-->
-        <!--            android:exported="false" />-->
+        <activity
+            android:name=".ui.exchange.exchangedetail.ExchangeDetailActivity"
+            android:exported="false" />
 
-        <!--        <activity-->
-        <!--            android:name=".ui.exchange.searchexchange.SearchExchangeActivity"-->
-        <!--            android:exported="false" />-->
+        <activity
+            android:name=".ui.exchange.searchexchange.SearchExchangeActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.dailyexpenses.ExpensesListActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

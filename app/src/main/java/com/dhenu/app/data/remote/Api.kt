@@ -3,7 +3,12 @@ import com.dhenu.app.ui.businessman.response.AddBusinessManResponse
 import com.dhenu.app.ui.businessman.response.BusinessManListResponse
 import com.dhenu.app.ui.customer.response.AddCustomerResponse
 import com.dhenu.app.ui.customer.response.CustomerListResponse
+import com.dhenu.app.ui.dailyexpenses.response.AddExpensesResponse
+import com.dhenu.app.ui.dailyexpenses.response.ExpensesListResponse
+import com.dhenu.app.ui.exchange.response.AddExchangeItemResponse
 import com.dhenu.app.ui.exchange.response.AddExchangeResponse
+import com.dhenu.app.ui.exchange.response.CloseExchangeResponse
+import com.dhenu.app.ui.exchange.response.ExchangeItemListResponse
 import com.dhenu.app.ui.exchange.response.ExchangeListResponse
 import com.dhenu.app.ui.items.response.AddItemsResponse
 import com.dhenu.app.ui.items.response.ItemsListResponse
@@ -76,7 +81,6 @@ interface Api {
     @POST("account/UpdateMortgage")
     fun updateMortgage(@Body map: HashMap<String, Any>): Observable<UpdateMortgageResponse>
 
-
     @POST("account/AddExchange")
     fun addExchange(@Body map: Map<String, @JvmSuppressWildcards Any>): Observable<AddExchangeResponse>
 
@@ -85,6 +89,24 @@ interface Api {
 
     @GET("account/GetExchange")
     fun getExchange(@QueryMap map: HashMap<String, Any>): Observable<ExchangeListResponse>
+
+
+    @POST("account/AddDailyExpense")
+    fun addExpenses(@Body map: Map<String, @JvmSuppressWildcards Any>): Observable<AddExpensesResponse>
+
+
+    @GET("account/GetDailyExpense")
+    fun getExpenses(@QueryMap map: HashMap<String, Any>): Observable<ExpensesListResponse>
+
+
+    @POST("account/AddExchangeItem")
+    fun addExchangeItem(@Body map: Map<String, @JvmSuppressWildcards Any>): Observable<AddExchangeItemResponse>
+
+    @POST("account/CloseExchangeItem")
+    fun closeExchangeItem(@Body map: Map<String, @JvmSuppressWildcards Any>): Observable<CloseExchangeResponse>
+
+    @GET("account/GetExchangeItem")
+    fun getExchangeItem(@QueryMap map: HashMap<String, Any>): Observable<ExchangeItemListResponse>
 
     @POST("logout")
     fun logOut(): Observable<LogoutResponse>

@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="expensesListVM"
+            type="com.dhenu.app.ui.dailyexpenses.ExpensesViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/screen_bg"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/layoutBottomView"
+            android:orientation="vertical">
+
+            <include
+                android:id="@+id/toolbar"
+                layout="@layout/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_20"
+                android:layout_marginTop="@dimen/dp_20"
+                android:layout_marginEnd="@dimen/dp_20"
+                android:background="@drawable/dr_edittext_background"
+                android:orientation="vertical"
+                android:padding="@dimen/dp_20">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/textTotalBalance"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/dp_20"
+                        android:fontFamily="@font/app_font_bold"
+                        android:gravity="end"
+                        android:layout_weight="1"
+                        android:text="Balance: 0.0"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/text_size22"
+                        android:visibility="visible" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/textSelectedDate"
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginStart="@dimen/dp_20"
+                        android:background="@drawable/dr_edittext_background"
+                        android:fontFamily="@font/app_font_medium"
+                        android:gravity="center"
+                        android:padding="@dimen/dp_15"
+                        android:text="date"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size18"
+                        android:visibility="visible" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginTop="@dimen/dp_20"
+                    android:orientation="horizontal">
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/textCreditTotal"
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/dp_20"
+                        android:gravity="end"
+                        android:fontFamily="@font/app_font_medium"
+                        android:text="क्रेडिट: ₹ 0.0"
+                        android:textColor="@color/green"
+                        android:textSize="@dimen/text_size18"
+                        android:visibility="visible" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/textDebitTotal"
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="@dimen/dp_10"
+                        android:layout_marginStart="@dimen/dp_20"
+                        android:fontFamily="@font/app_font_medium"
+                        android:text="डिबिट: ₹0.0"
+                        android:textColor="@color/red"
+                        android:textSize="@dimen/text_size18"
+                        android:visibility="visible" />
+
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_20"
+                android:layout_marginTop="@dimen/dp_20"
+                android:layout_marginEnd="@dimen/dp_10"
+                android:orientation="horizontal">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerCredit"
+                    android:layout_width="match_parent"
+                    android:background="@color/white"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="@dimen/dp_10"
+                    android:layout_weight="1"
+                    android:visibility="visible"
+                    tools:itemCount="5"
+                    tools:listitem="@layout/item_daily_expenses_list" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerDebit"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/dp_10"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:visibility="visible"
+                    tools:itemCount="5"
+                    tools:listitem="@layout/item_daily_expenses_list" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutBottomView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="@dimen/dp_15"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textClosingBalance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/app_font_bold"
+                android:gravity="center"
+                android:padding="@dimen/dp_15"
+                android:text="क्लोजिंग बैलेंस: ₹0.0"
+                android:textColor="@color/green"
+                android:textSize="@dimen/text_size20"
+                android:visibility="visible" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/textAddCredit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/dp_10"
+                    android:layout_weight="1"
+                    android:background="@drawable/dr_edittext_background"
+                    android:fontFamily="@font/app_font_medium"
+                    android:gravity="center"
+                    android:padding="@dimen/dp_15"
+                    android:text="प्राप्त हुआ"
+                    android:textColor="@color/green"
+                    android:textSize="@dimen/text_size18"
+                    android:visibility="visible" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/textAddDebit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp_10"
+                    android:layout_weight="1"
+                    android:background="@drawable/dr_edittext_background"
+                    android:fontFamily="@font/app_font_medium"
+                    android:gravity="center"
+                    android:padding="@dimen/dp_15"
+                    android:text="दिया गया"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/text_size18"
+                    android:visibility="visible" />
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</layout>
