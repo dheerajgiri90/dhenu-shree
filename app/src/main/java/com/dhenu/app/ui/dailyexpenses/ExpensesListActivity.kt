@@ -74,7 +74,7 @@ class ExpensesListActivity : BaseActivity<ActivityDailyExpensesBinding, Expenses
         val currentDate = Date()
         val dateFormat = SimpleDateFormat("dd-MMM-yyyy", Locale.getDefault())
         selectedDate = dateFormat.format(currentDate)
-        viewDataBinding!!.textSelectedDate.text = "तारीख: $selectedDate"
+        viewDataBinding!!.textSelectedDate.text = "$selectedDate"
 
         if (checkIfInternetOnDialog(tryAgainClick = {
                 viewModel.villageListAPI(selectedDate)

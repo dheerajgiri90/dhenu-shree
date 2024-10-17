@@ -37,7 +37,7 @@ class CustomerListAdapter(
         }
 
         holder.viewDataBinding.textStudentName.text =
-            list[position].Name + ", " + list[position].VillageName
+            list[position].Name /*+ ", " + list[position].VillageName*/
 
     }
 

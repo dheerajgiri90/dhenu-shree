@@ -12,6 +12,7 @@ import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dhenu.app.BR
 import com.dhenu.app.R
@@ -131,6 +132,7 @@ class VillageListActivity : BaseActivity<ActivityCommonListBinding, VillageListV
         viewDataBinding!!.toolbar.toolBarHeading.text = "गांव का नाम"
         viewDataBinding!!.recyclerView.layoutManager = LinearLayoutManager(this)
 
+
         mAdapter = VillageListAdapter(this, arrayList,
             onItemClick = { index ->
 
@@ -145,7 +147,6 @@ class VillageListActivity : BaseActivity<ActivityCommonListBinding, VillageListV
                     //intent.putExtra(IntentKeys.COME_FROM.getKey(), "SELECT")
                     startActivity(intent)
 
-
                 }
 
             }, onEditClick = { index ->
@@ -153,6 +154,8 @@ class VillageListActivity : BaseActivity<ActivityCommonListBinding, VillageListV
             })
         viewDataBinding!!.recyclerView.setHasFixedSize(true)
         viewDataBinding!!.recyclerView.adapter = mAdapter
+        val dividerItemDecoration = DividerItemDecoration(this, DividerItemDecoration.VERTICAL)
+        viewDataBinding!!.recyclerView.addItemDecoration(dividerItemDecoration)
 
     }
 

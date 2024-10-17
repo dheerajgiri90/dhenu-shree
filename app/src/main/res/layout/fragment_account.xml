@@ -22,7 +22,7 @@
             android:padding="@dimen/dp_15"
             android:text="!! श्री !!"
             android:textColor="@color/white"
-            android:textSize="@dimen/text_size18" />
+            android:textSize="@dimen/text_size24" />
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
@@ -75,7 +75,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/dp_5"
                         android:drawablePadding="@dimen/dp_15"
-                        android:fontFamily="@font/app_font_bold"
+                        android:fontFamily="@font/app_font_medium"
                         android:gravity="center_vertical"
                         android:padding="@dimen/dp_15"
                         android:text="सेटिंग"
@@ -85,7 +85,7 @@
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:layout_marginStart="@dimen/dp_20"
+                        android:layout_marginStart="@dimen/dp_10"
                         android:background="@color/gray_line" />
 
                     <TextView
@@ -94,7 +94,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/dp_5"
                         android:drawablePadding="@dimen/dp_15"
-                        android:fontFamily="@font/app_font_bold"
+                        android:fontFamily="@font/app_font_medium"
                         android:gravity="center_vertical"
                         android:padding="@dimen/dp_15"
                         android:text="लॉग आउट"

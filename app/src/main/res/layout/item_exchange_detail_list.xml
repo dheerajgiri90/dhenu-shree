@@ -36,11 +36,11 @@
             android:id="@+id/textItemName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp_5"
+            android:layout_marginTop="@dimen/dp_2"
             android:fontFamily="@font/app_font_regular"
             android:text="Item Name: Kada"
             android:textColor="@color/black"
-            android:textSize="@dimen/text_size18" />
+            android:textSize="@dimen/text_size17" />
 
 
         <RelativeLayout
@@ -56,7 +56,7 @@
                 android:fontFamily="@font/app_font_regular"
                 android:text="13 oct 2024"
                 android:textColor="@color/black"
-                android:textSize="@dimen/text_size18" />
+                android:textSize="@dimen/text_size17" />
 
             <TextView
                 android:id="@+id/textAmount"

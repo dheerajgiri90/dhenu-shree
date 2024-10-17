@@ -79,7 +79,7 @@ class SearchExchangeActivity :
                 viewDataBinding!!.textWeight.text = "वज़न: " + mortgageData?.Weight.toString()
 
                 viewDataBinding!!.textCustomerName.text =
-                    "ग्राहक का नाम: " + mortgageData?.Name
+                    "ग्राहक: " + mortgageData?.Name
 
                 viewDataBinding!!.textMortgageDate.text = "दिनांक: " + mortgageData?.MortgageDate
 
@@ -87,7 +87,7 @@ class SearchExchangeActivity :
                 viewDataBinding!!.textEndDate.text = "अंतिम तिथि: " + mortgageData?.EndDateDetail
 
                 viewDataBinding!!.textVillageName.text = "गाँव: " + mortgageData?.VillageName
-                viewDataBinding!!.textMobileNumber.text = "मोबाइल नंबर: " + mortgageData?.MobileNo
+                viewDataBinding!!.textMobileNumber.text = "मोबाइल: " + mortgageData?.MobileNo
 
 
             } else {

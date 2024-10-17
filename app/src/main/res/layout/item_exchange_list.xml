@@ -43,12 +43,12 @@
 
         </RelativeLayout>
 
-
         <View
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_1"
             android:layout_marginTop="@dimen/dp_15"
-            android:background="@color/gray_line" />
+            android:background="@color/gray_line"
+            android:visibility="gone" />
 
     </LinearLayout>
 

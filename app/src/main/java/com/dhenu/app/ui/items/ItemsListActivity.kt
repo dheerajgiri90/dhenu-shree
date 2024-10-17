@@ -12,6 +12,7 @@ import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dhenu.app.BR
 import com.dhenu.app.R
@@ -146,6 +147,8 @@ class ItemsListActivity : BaseActivity<ActivityItemsListBinding, ItemsListViewMo
             })
         viewDataBinding!!.recyclerView.setHasFixedSize(true)
         viewDataBinding!!.recyclerView.adapter = mAdapter
+        val dividerItemDecoration = DividerItemDecoration(this, DividerItemDecoration.VERTICAL)
+        viewDataBinding!!.recyclerView.addItemDecoration(dividerItemDecoration)
 
     }
 
