@@ -31,12 +31,12 @@
                 android:fontFamily="@font/app_font_regular"
                 android:text="13 oct 2024"
                 android:textColor="@color/black"
-                android:textSize="@dimen/text_size18" />
+                android:textSize="@dimen/text_size16" />
 
         </RelativeLayout>
 
         <RelativeLayout
-            android:layout_marginTop="@dimen/dp_5"
+            android:layout_marginTop="@dimen/dp_3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -47,17 +47,17 @@
                 android:fontFamily="@font/app_font_regular"
                 android:text="Item Name: Kada"
                 android:textColor="@color/black"
-                android:textSize="@dimen/text_size18" />
+                android:textSize="@dimen/text_size17" />
 
             <TextView
                 android:id="@+id/textAmount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:fontFamily="@font/app_font_bold"
+                android:fontFamily="@font/app_font_medium"
                 android:text="₹ 50000"
                 android:textColor="@color/colorPrimary"
-                android:textSize="@dimen/text_size18" />
+                android:textSize="@dimen/text_size17" />
 
         </RelativeLayout>
 

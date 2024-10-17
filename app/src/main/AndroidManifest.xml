@@ -75,6 +75,7 @@
 
         <activity
             android:name=".ui.mortgage.addmortgage.AddMortgageActivity"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
 
         <activity
