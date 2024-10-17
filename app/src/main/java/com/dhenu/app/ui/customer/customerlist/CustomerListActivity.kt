@@ -50,6 +50,7 @@ class CustomerListActivity : BaseActivity<ActivityCustomerListBinding, CustomerL
     internal var last_text_edit: Long = 0
     internal var handler = Handler()
     var searchKeyOffer: String = ""
+    var comeFrom: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,6 +59,9 @@ class CustomerListActivity : BaseActivity<ActivityCustomerListBinding, CustomerL
 
         if (intent != null && intent.hasExtra(IntentKeys.VILLAGE_DATA.getKey())) {
             viewModel.villageData = intent.getParcelableExtra(IntentKeys.VILLAGE_DATA.getKey())
+        }
+        if (intent != null && intent.hasExtra(IntentKeys.COME_FROM.getKey())) {
+            comeFrom = intent.getStringExtra(IntentKeys.COME_FROM.getKey()).toString()
         }
 
         DataBinding.onSingleClick(viewDataBinding!!.textAddVillage) {
@@ -175,9 +179,16 @@ class CustomerListActivity : BaseActivity<ActivityCustomerListBinding, CustomerL
 
         mAdapter = CustomerListAdapter(this, arrayList, onItemClick = { index ->
 
-            val resultIntent = Intent(this, MortgageListActivity::class.java)
-            resultIntent.putExtra(IntentKeys.CUSTOMER_DATA.getKey(), arrayList.get(index))
-            startActivity(resultIntent)
+            if (comeFrom == "SELECT") {
+                val resultIntent = Intent()
+                resultIntent.putExtra(IntentKeys.CUSTOMER_DATA.getKey(), arrayList.get(index))
+                setResult(Activity.RESULT_OK, resultIntent)
+                finish()
+            } else {
+                val resultIntent = Intent(this, MortgageListActivity::class.java)
+                resultIntent.putExtra(IntentKeys.CUSTOMER_DATA.getKey(), arrayList.get(index))
+                startActivity(resultIntent)
+            }
 
         }, onEditClick = { index ->
             val intent = Intent(this, AddCustomerActivity::class.java)

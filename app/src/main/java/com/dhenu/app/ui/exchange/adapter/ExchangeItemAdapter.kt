@@ -40,7 +40,7 @@ class ExchangeItemAdapter(
             "टोकन नंबर: " + list.get(position).MortgageId.toString()
         holder.viewDataBinding.textMortgageDate.text = list.get(position).ItemDate
         holder.viewDataBinding.textItemName.text =
-            "आइटम: " + list.get(position).ItemName + "," + list[position].CustomerName + "," + list[position].Address
+            /*"आइटम: " +*/ list.get(position).ItemName + ", " + list[position].CustomerName + ", " + list[position].Address
         holder.viewDataBinding.textAmount.text = "₹ " + list.get(position).Amount
 
     }

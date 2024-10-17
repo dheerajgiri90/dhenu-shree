@@ -5,6 +5,7 @@ import android.os.Parcelable
 import com.dhenu.app.data.Parser
 import com.dhenu.app.data.remote.ApiFactory
 import com.dhenu.app.ui.base.BaseResponse
+import com.dhenu.app.ui.exchange.response.ExchangeListResponse.ExchangeData
 import com.dhenu.app.util.Logger
 import com.dhenu.app.util.NetworkResponseCallback
 import com.google.gson.annotations.SerializedName
@@ -18,8 +19,11 @@ class ExchangeItemListResponse : BaseResponse<ExchangeItemListResponse, String, 
     @SerializedName("ResponseMessage")
     var message: String = ""
 
-    @SerializedName("Exchange")
+    @SerializedName("ExchangeItem")
     var data = ArrayList<ExchangeItem>()
+
+    @SerializedName("Exchange")
+    var exchangeData = ArrayList<ExchangeData>()
 
     override fun doNetworkRequest(
         requestParam: HashMap<String, Any>,

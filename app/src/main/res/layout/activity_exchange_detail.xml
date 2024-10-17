@@ -36,11 +36,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/dp_20"
                 android:layout_weight="1"
-                android:fontFamily="@font/app_font_bold"
+                android:fontFamily="@font/app_font_medium"
                 android:gravity="center"
                 android:text="Date: 01-01-1190"
                 android:textColor="@color/black"
-                android:textSize="@dimen/text_size22"
+                android:textSize="@dimen/text_size18"
                 android:visibility="visible" />
 
 
@@ -50,11 +50,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/dp_20"
                 android:layout_weight="1"
-                android:fontFamily="@font/app_font_bold"
+                android:fontFamily="@font/app_font_medium"
                 android:gravity="center"
                 android:text="Amount: $20000/-      "
                 android:textColor="@color/black"
-                android:textSize="@dimen/text_size20"
+                android:textSize="@dimen/text_size18"
                 android:visibility="visible" />
 
             <androidx.appcompat.widget.AppCompatTextView
@@ -67,7 +67,7 @@
                 android:gravity="center"
                 android:text="Rate: 2 %"
                 android:textColor="@color/black"
-                android:textSize="@dimen/text_size20"
+                android:textSize="@dimen/text_size18"
                 android:visibility="visible" />
 
 

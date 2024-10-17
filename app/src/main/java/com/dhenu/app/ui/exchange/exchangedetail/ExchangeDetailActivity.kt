@@ -52,7 +52,7 @@ class ExchangeDetailActivity :
 
             viewDataBinding!!.textExchangeDate.text = "दिनांक: " + date
             viewDataBinding!!.textExchangeRate.text =
-                "ब्याज दर" + viewModel.exchangeData?.InterestRate.toString() + "%"
+                "ब्याज दर: " + viewModel.exchangeData?.InterestRate.toString() + "%"
             viewDataBinding!!.textExchangeAmount.text =
                 "अमाउंट: ₹" + viewModel.exchangeData?.Amount.toString()
         }
@@ -74,6 +74,16 @@ class ExchangeDetailActivity :
     }
 
     override fun exchangeItemsListResponse(response: ExchangeItemListResponse) {
+
+        val date = CommonUtils.getDateInFormat(
+            "yyyy-MM-dd'T'HH:mm:ss", "dd MMM yyyy", response.exchangeData.get(0).ExchangeDate ?: ""
+        )
+        viewDataBinding!!.textExchangeDate.text = "दिनांक: " + date
+        viewDataBinding!!.textExchangeRate.text =
+            "ब्याज दर: " + response.exchangeData.get(0).InterestRate.toString() + "%"
+        viewDataBinding!!.textExchangeAmount.text =
+            "अमाउंट: ₹" + response.exchangeData.get(0).Amount.toString()
+
         arrayList.clear()
         arrayList.addAll(response.data)
         mAdapter!!.notifyDataSetChanged()

@@ -45,11 +45,16 @@ class ItemsListActivity : BaseActivity<ActivityItemsListBinding, ItemsListViewMo
     internal var last_text_edit: Long = 0
     internal var handler = Handler()
     var searchKeyOffer: String = ""
+    var comefrom: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel.navigator = this
         init()
+
+        if (intent != null && intent.hasExtra(IntentKeys.COME_FROM.getKey())) {
+            comefrom = intent.getStringExtra(IntentKeys.COME_FROM.getKey()).toString()
+        }
 
         DataBinding.onSingleClick(viewDataBinding!!.textAddVillage) {
             hideKeyboard()
@@ -129,11 +134,12 @@ class ItemsListActivity : BaseActivity<ActivityItemsListBinding, ItemsListViewMo
 
         mAdapter = VillageListAdapter(this, arrayList,
             onItemClick = { index ->
-
-                val resultIntent = Intent()
-                resultIntent.putExtra(IntentKeys.ITEM_DATA.getKey(), arrayList.get(index))
-                setResult(RESULT_OK, resultIntent)
-                finish()
+                if (comefrom == "SELECT") {
+                    val resultIntent = Intent()
+                    resultIntent.putExtra(IntentKeys.ITEM_DATA.getKey(), arrayList.get(index))
+                    setResult(RESULT_OK, resultIntent)
+                    finish()
+                }
 
             }, onEditClick = { index ->
                 showAddDialog(arrayList.get(index))

@@ -122,7 +122,7 @@ class ExpensesListActivity : BaseActivity<ActivityDailyExpensesBinding, Expenses
 
         mCreditAdapter!!.notifyDataSetChanged()
         mDebitAdapter!!.notifyDataSetChanged()
-        viewDataBinding!!.textTotalBalance.text = "बैलेंस:: ₹" + response.OpeningBalance + "/-"
+        viewDataBinding!!.textTotalBalance.text = "बैलेंस: ₹" + response.OpeningBalance + "/-"
         viewDataBinding!!.textCreditTotal.text = "क्रेडिट: ₹" + response.CreditBalance + "/-"
         viewDataBinding!!.textDebitTotal.text = "डिबिट: ₹" + response.DebitBalance + "/-"
 

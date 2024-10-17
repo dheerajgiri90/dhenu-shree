@@ -61,6 +61,7 @@ class AddMortgageActivity : BaseActivity<ActivityAddMortgageBinding, AddMortgage
         DataBinding.onSingleClick(viewDataBinding!!.textSelectVillage) {
 
             val intent = Intent(this, VillageListActivity::class.java)
+            intent.putExtra(IntentKeys.COME_FROM.getKey(), "SELECT")
             selectVillageLauncher.launch(intent)
 
         }
@@ -70,12 +71,14 @@ class AddMortgageActivity : BaseActivity<ActivityAddMortgageBinding, AddMortgage
             } else {
                 val intent = Intent(this, CustomerListActivity::class.java)
                 intent.putExtra(IntentKeys.VILLAGE_DATA.getKey(), viewModel.villageData)
+                intent.putExtra(IntentKeys.COME_FROM.getKey(), "SELECT")
                 selectCustomerLauncher.launch(intent)
             }
         }
         DataBinding.onSingleClick(viewDataBinding!!.textSelectItem) {
 
             val intent = Intent(this, ItemsListActivity::class.java)
+            intent.putExtra(IntentKeys.COME_FROM.getKey(), "SELECT")
             selectItemLauncher.launch(intent)
 
         }

@@ -6,8 +6,6 @@ import com.dhenu.app.R
 import com.dhenu.app.databinding.ItemDailyExpensesListBinding
 import com.dhenu.app.ui.base.BaseRecyclerAdapter
 import com.dhenu.app.ui.dailyexpenses.response.ExpensesListResponse.DailyExpenseItem
-import com.dhenu.app.ui.exchange.response.ExchangeListResponse.ExchangeData
-import com.dhenu.app.util.CommonUtils
 
 class ExpensesListAdapter(
     private val context: Context,
@@ -33,9 +31,9 @@ class ExpensesListAdapter(
             onItemClick.invoke(position)
         }
 
-        holder.viewDataBinding.textAmount.text = "₹" + list[position].Amount + "/-"
-        holder.viewDataBinding.textDescription.text = list[position].Description
-
+        holder.viewDataBinding.textAmount.text =
+            "₹" + list[position].Amount + "/- " + list[position].Description
+        //holder.viewDataBinding.textDescription.text = list[position].Description
     }
 
     override fun getLayoutId(viewType: Int): Int {

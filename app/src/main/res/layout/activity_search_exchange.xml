@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="searchExchangeVM"
+            type="com.dhenu.app.ui.exchange.searchexchange.SearchExchangeViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/screen_bg"
+            android:fadingEdge="none"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingStart="@dimen/dp_20"
+                android:paddingTop="@dimen/dp_20"
+                android:paddingEnd="@dimen/dp_20"
+                android:paddingBottom="@dimen/dp_20">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/dp_20"
+                    android:fontFamily="@font/app_font_regular"
+                    android:hint="टोकन नंबर"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size16" />
+
+                <EditText
+                    android:id="@+id/textTokenNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:background="@drawable/dr_edittext_background"
+                    android:fontFamily="@font/app_font_regular"
+                    android:hint="टोकन नंबर दर्ज करें"
+                    android:inputType="number"
+                    android:maxLength="50"
+                    android:maxLines="1"
+                    android:padding="@dimen/dp_20"
+                    android:singleLine="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size16" />
+
+                <TextView
+                    android:id="@+id/textSearchMortgage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/dp_30"
+                    android:background="@drawable/dr_app_theme_btn_bg"
+                    android:fontFamily="@font/app_font_bold"
+                    android:gravity="center"
+                    android:paddingStart="@dimen/dp_50"
+                    android:paddingTop="@dimen/dp_20"
+                    android:paddingEnd="@dimen/dp_50"
+                    android:paddingBottom="@dimen/dp_20"
+                    android:text="सर्च करे"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size18" />
+
+
+                <LinearLayout
+                    android:id="@+id/layoutMortgageData"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_30"
+                    android:background="@drawable/dr_edittext_background"
+                    android:orientation="vertical"
+                    android:padding="@dimen/dp_15"
+                    android:visibility="gone">
+
+
+                    <TextView
+                        android:id="@+id/textBusinessman"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:focusableInTouchMode="true"
+                        android:fontFamily="@font/app_font_medium"
+                        android:gravity="center"
+                        android:singleLine="true"
+                        android:text="व्यापारी का नाम: Dheeraj"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size20" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/textCustomerName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:focusableInTouchMode="true"
+                            android:fontFamily="@font/app_font_medium"
+                            android:gravity="center"
+                            android:singleLine="true"
+                            android:text="ग्राहक का नाम: "
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size18" />
+
+
+                        <TextView
+                            android:id="@+id/textMortgageDate"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:focusableInTouchMode="true"
+                            android:fontFamily="@font/app_font_medium"
+                            android:gravity="center"
+                            android:singleLine="true"
+                            android:text=""
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size18" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_15"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/textVillageName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:focusableInTouchMode="true"
+                            android:fontFamily="@font/app_font_medium"
+                            android:gravity="center"
+                            android:singleLine="true"
+                            android:text="गाँव: Kada"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size18" />
+
+
+                        <TextView
+                            android:id="@+id/textMobileNumber"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:focusableInTouchMode="true"
+                            android:fontFamily="@font/app_font_medium"
+                            android:gravity="center"
+                            android:singleLine="true"
+                            android:text="मोबाइल नंबर: 8770529945"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size18" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_15"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/textItemName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:focusableInTouchMode="true"
+                            android:fontFamily="@font/app_font_medium"
+                            android:gravity="center"
+                            android:singleLine="true"
+                            android:text="आइटम: Kada"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size18" />
+
+
+                        <TextView
+                            android:id="@+id/textWeight"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:focusableInTouchMode="true"
+                            android:fontFamily="@font/app_font_medium"
+                            android:gravity="center"
+                            android:singleLine="true"
+                            android:text="वज़न: 500 g"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size18" />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_15"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/textItemAmount"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:focusableInTouchMode="true"
+                            android:fontFamily="@font/app_font_medium"
+                            android:gravity="center"
+                            android:singleLine="true"
+                            android:text="अमाउंट: ₹0.0"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size18" />
+
+
+                        <TextView
+                            android:id="@+id/textEndDate"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:focusableInTouchMode="true"
+                            android:fontFamily="@font/app_font_medium"
+                            android:gravity="center"
+                            android:singleLine="true"
+                            android:text="गिरवी दिनांक: 17-Oct-2024"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size18" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:id="@+id/textFindExchange"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/dp_30"
+                    android:background="@drawable/dr_app_theme_btn_bg"
+                    android:fontFamily="@font/app_font_bold"
+                    android:gravity="center"
+                    android:paddingStart="@dimen/dp_50"
+                    android:paddingTop="@dimen/dp_20"
+                    android:paddingEnd="@dimen/dp_50"
+                    android:paddingBottom="@dimen/dp_20"
+                    android:text="बदला करना"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size18"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </LinearLayout>
+
+</layout>

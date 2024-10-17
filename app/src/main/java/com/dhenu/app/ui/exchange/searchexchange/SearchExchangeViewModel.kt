@@ -2,7 +2,7 @@ package com.dhenu.app.ui.exchange.searchexchange
 
 import com.dhenu.app.data.ListData
 import com.dhenu.app.data.local.AppPreference
-import com.dhenu.app.databinding.ActivityAddCustomerBinding
+import com.dhenu.app.databinding.ActivitySearchExchangeBinding
 import com.dhenu.app.ui.base.BaseViewModel
 import com.dhenu.app.ui.customer.response.CustomerListResponse.CustomerData
 import com.dhenu.app.ui.mortgage.response.MortgageListResponse
@@ -14,25 +14,29 @@ class SearchExchangeViewModel : BaseViewModel<SearchExchangeNavigator>() {
     var customerData: CustomerData? = null
 
 
-    fun checkValidation(viewDataBinding: ActivityAddCustomerBinding): Boolean {
-        if (viewDataBinding.editName.text!!.trim().isEmpty()) {
+    fun checkValidation(viewDataBinding: ActivitySearchExchangeBinding): Boolean {
+        if (viewDataBinding.textTokenNumber.text!!.trim().isEmpty()) {
             navigator!!.showValidationError("कृपया टोकन नंबर दर्ज करें")
-            viewDataBinding.editName.requestFocus()
+            viewDataBinding.textTokenNumber.requestFocus()
             return false
         }
 
         return true
     }
 
-    fun getMortgageList(mortgageId: String) {
+    fun getMortgageData(viewDataBinding: ActivitySearchExchangeBinding) {
+
+        navigator!!.showProgress()
 
         val requestMap: HashMap<String, Any> = HashMap()
+
         requestMap["name"] = ""
         requestMap["villageid"] = ""
-        requestMap["isclosed"] = ""
+        requestMap["isclosed"] = false
         requestMap["isexchanged"] = ""
-        requestMap["mortageid"] = mortgageId
+        requestMap["mortgageid"] = viewDataBinding.textTokenNumber.text.toString().trim()
         requestMap["customerid"] = ""
+
 
         disposable.add(
             MortgageListResponse().doNetworkRequest(requestMap,
