@@ -65,9 +65,9 @@ class SearchExchangeActivity :
 
             if (mortgageData!!.IsExchanged) {
 
-                exchangeData = ExchangeData(
-                    0.0, mortgageData?.BusinessmanName ?: "", "", mortgageData?.ExchangeId ?: 0, 0.0
-                )
+                exchangeData = ExchangeData(0.0, mortgageData?.BusinessmanName ?: "",
+                    "", mortgageData?.ExchangeId ?: 0,
+                    0.0,mortgageData?.ManualId?:"")
 
                 viewDataBinding!!.textFindExchange.visibility = View.VISIBLE
                 viewDataBinding!!.layoutMortgageData.visibility = View.VISIBLE

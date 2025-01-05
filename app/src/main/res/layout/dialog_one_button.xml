@@ -70,6 +70,8 @@
                 android:background="@drawable/dr_app_theme_btn_bg"
                 android:fontFamily="@font/app_font_regular"
                 android:text="@string/ok"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
                 android:textColor="@color/white"
                 android:textSize="@dimen/text_size14" />
 

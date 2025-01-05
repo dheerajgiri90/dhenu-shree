@@ -20,13 +20,18 @@ object AppPreference {
 
     fun getInstance(context: Context) {
         sharedPreferences = context.getSharedPreferences(prefName, Context.MODE_PRIVATE)
-        sharedPreferences = EncryptedSharedPreferences.create(
-            "secret_shared_prefs",
-            masterKeyAlias,
-            context,
-            EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
-            EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
-        )
+        try {
+            sharedPreferences = EncryptedSharedPreferences.create(
+                "secret_shared_prefs",
+                masterKeyAlias,
+                context,
+                EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
+                EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
+            )
+        } catch (e: Exception) {
+            context.deleteSharedPreferences("secret_shared_prefs")
+            throw e // Optionally rethrow or handle it appropriately
+        }
     }
 
     fun addValue(preferencesKey: PreferenceKeys, value: String) {

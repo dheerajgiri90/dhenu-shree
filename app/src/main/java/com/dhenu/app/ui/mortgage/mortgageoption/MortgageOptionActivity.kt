@@ -31,7 +31,7 @@ class MortgageOptionActivity :
         super.onCreate(savedInstanceState)
         viewModel.navigator = this
         init()
-
+        viewDataBinding!!.textAddMortgage.requestFocus()
         DataBinding.onSingleClick(viewDataBinding!!.textAddMortgage) {
             ActivityNavigator.startActivity(this, AddMortgageActivity::class.java)
         }

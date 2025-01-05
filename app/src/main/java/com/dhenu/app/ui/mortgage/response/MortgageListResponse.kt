@@ -62,7 +62,8 @@ class MortgageListResponse : BaseResponse<MortgageListResponse, String, Any>() {
         val TotalAmount: Double,
         val VillageId: Int,
         val VillageName: String?,
-        val Weight: String
+        val Weight: String,
+        val ManualId: String?="",
     ) : Parcelable
 
 }

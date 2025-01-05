@@ -1,20 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <item>
-        <shape android:shape="rectangle">
-            <solid android:color="@color/gray_line"/>
-            <corners android:radius="@dimen/dp_5" />
-        </shape>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- State when the TextView is focused -->
+    <item android:state_focused="true">
+        <layer-list>
+            <item>
+                <shape android:shape="rectangle">
+                    <solid android:color="@color/gray" />
+                    <corners android:radius="@dimen/dp_5" />
+                </shape>
+            </item>
+
+            <item android:bottom="1dp" android:left="1dp" android:right="1dp" android:top="1dp">
+                <shape android:shape="rectangle">
+                    <solid android:color="@android:color/white" />
+                    <stroke android:width="2dp" android:color="@color/colorPrimary" />
+                    <corners android:radius="@dimen/dp_5" />
+                </shape>
+            </item>
+
+            <item android:bottom="1dp" android:left="1dp" android:right="1dp" android:top="1dp">
+                <shape android:shape="rectangle">
+                    <solid android:color="@android:color/white" />
+                    <stroke android:width="2dp" android:color="@color/colorPrimary" />
+                    <corners android:radius="@dimen/dp_5" />
+                </shape>
+            </item>
+        </layer-list>
     </item>
 
-    <item
-        android:left="1dp"
-        android:right="1dp"
-        android:top="1dp"
-        android:bottom="1dp">
-        <shape android:shape="rectangle">
-            <solid android:color="@android:color/white"/>
-            <corners android:radius="@dimen/dp_5" />
-        </shape>
+    <!-- Default state -->
+    <item>
+        <layer-list>
+            <item>
+                <shape android:shape="rectangle">
+                    <solid android:color="@color/gray_line" />
+                    <corners android:radius="@dimen/dp_5" />
+                </shape>
+            </item>
+
+            <item android:bottom="1dp" android:left="1dp" android:right="1dp" android:top="1dp">
+                <shape android:shape="rectangle">
+                    <solid android:color="@android:color/white" />
+                    <stroke android:width="1dp" android:color="@color/gray_line" />
+                    <corners android:radius="@dimen/dp_5" />
+                </shape>
+            </item>
+        </layer-list>
     </item>
-</layer-list>
+</selector>

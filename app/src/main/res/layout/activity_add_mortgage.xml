@@ -29,161 +29,188 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:gravity="center"
                 android:orientation="vertical"
-                android:padding="@dimen/dp_20">
+                android:paddingStart="@dimen/dp_30"
+                android:paddingTop="@dimen/dp_20"
+                android:paddingEnd="@dimen/dp_30"
+                android:paddingBottom="@dimen/dp_20">
 
                 <TextView
                     android:id="@+id/textTodayDay"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:background="@drawable/dr_edittext_background"
                     android:fontFamily="@font/app_font_bold"
-                    android:gravity="end"
+                    android:gravity="center"
                     android:hint="Date: 12 Oct 2024"
+                    android:paddingStart="@dimen/dp_15"
+                    android:paddingTop="@dimen/dp_10"
+                    android:paddingEnd="@dimen/dp_15"
+                    android:paddingBottom="@dimen/dp_10"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/text_size18" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:fontFamily="@font/app_font_regular"
-                    android:hint="गांव का चयन करें"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/text_size16" />
-
-                <TextView
-                    android:id="@+id/textSelectVillage"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="@dimen/dp_2"
-                    android:background="@drawable/dr_edittext_background"
-                    android:fontFamily="@font/app_font_regular"
-                    android:hint="गांव"
-                    android:maxLength="50"
-                    android:maxLines="1"
-                    android:padding="@dimen/dp_18"
-                    android:singleLine="true"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/text_size16" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="@dimen/dp_10"
-                    android:fontFamily="@font/app_font_regular"
-                    android:hint="ग्राहक का चयन करें"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/text_size16" />
-
-                <TextView
-                    android:id="@+id/textSelectCustomer"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="@dimen/dp_2"
-                    android:background="@drawable/dr_edittext_background"
-                    android:fontFamily="@font/app_font_regular"
-                    android:hint="ग्राहक"
-                    android:maxLength="50"
-                    android:maxLines="1"
-                    android:padding="@dimen/dp_18"
-                    android:singleLine="true"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/text_size16" />
+                    android:textSize="@dimen/text_size18"
+                    android:visibility="gone" />
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="@dimen/dp_300"
                     android:layout_height="wrap_content"
+                    android:gravity="center"
                     android:orientation="horizontal">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
+                    <EditText
+                        android:id="@+id/dayEditText"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="@dimen/dp_10"
                         android:layout_weight="1"
-                        android:orientation="vertical">
+                        android:background="@drawable/dr_edittext_background"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:gravity="center"
+                        android:hint="DD"
+                        android:nextFocusDown="@id/monthEditText"
+                        android:inputType="number"
+                        android:maxLength="2"
+                        android:padding="12dp" />
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginTop="@dimen/dp_10"
-                            android:fontFamily="@font/app_font_regular"
-                            android:hint="रकम का चयन करें"
-                            android:textColor="@color/black"
-                            android:textSize="@dimen/text_size16" />
-
-                        <TextView
-                            android:id="@+id/textSelectItem"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginTop="@dimen/dp_2"
-                            android:background="@drawable/dr_edittext_background"
-                            android:fontFamily="@font/app_font_regular"
-                            android:hint="रकम"
-                            android:maxLength="50"
-                            android:maxLines="1"
-                            android:padding="@dimen/dp_18"
-                            android:singleLine="true"
-                            android:textColor="@color/black"
-                            android:textSize="@dimen/text_size16" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
+                    <TextView
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/dp_10"
+                        android:layout_marginHorizontal="4dp"
+                        android:gravity="center"
+                        android:text="/"
+                        android:focusable="false"
+                        android:textSize="18sp" />
+
+                    <EditText
+                        android:id="@+id/monthEditText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:orientation="vertical">
+                        android:background="@drawable/dr_edittext_background"
+                        android:gravity="center"
+                        android:hint="MM"
+                        android:nextFocusDown="@id/yearEditText"
+                        android:focusableInTouchMode="true"
+                        android:inputType="number"
+                        android:maxLength="2"
+                        android:padding="12dp" />
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginTop="@dimen/dp_10"
-                            android:fontFamily="@font/app_font_regular"
-                            android:hint="वज़न"
-                            android:textColor="@color/black"
-                            android:textSize="@dimen/text_size16" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="4dp"
+                        android:gravity="center"
+                        android:text="/"
+                        android:focusable="false"
+                        android:textSize="18sp" />
 
-                        <EditText
-                            android:id="@+id/editItemWeight"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/dp_2"
-                            android:background="@drawable/dr_edittext_background"
-                            android:focusableInTouchMode="true"
-                            android:fontFamily="@font/app_font_regular"
-                            android:hint="वज़न डाले"
-                            android:imeOptions="actionNext"
-                            android:inputType="number"
-                            android:maxLength="50"
-                            android:maxLines="1"
-                            android:padding="@dimen/dp_18"
-                            android:singleLine="true"
-                            android:textColor="@color/black"
-                            android:textSize="@dimen/text_size16" />
-
-
-                    </LinearLayout>
-
+                    <EditText
+                        android:id="@+id/yearEditText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:background="@drawable/dr_edittext_background"
+                        android:gravity="center"
+                        android:hint="YYYY"
+                        android:nextFocusDown="@id/textSelectVillage"
+                        android:focusableInTouchMode="true"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:padding="12dp" />
                 </LinearLayout>
 
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dp_10"
+                    android:layout_marginTop="@dimen/dp_20"
                     android:orientation="horizontal">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="@dimen/dp_10"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/app_font_regular"
+                            android:hint="गांव का चयन करें"
+                            android:focusable="false"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size16" />
+
+                        <TextView
+                            android:id="@+id/textSelectVillage"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="@dimen/dp_2"
+                            android:background="@drawable/dr_edittext_background"
+                            android:fontFamily="@font/app_font_regular"
+                            android:hint="गांव"
+                            android:maxLength="50"
+                            android:maxLines="1"
+                            android:focusable="true"
+                            android:padding="@dimen/dp_18"
+                            android:singleLine="true"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size16" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp_20"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:focusable="false"
+                            android:fontFamily="@font/app_font_regular"
+                            android:hint="ग्राहक का चयन करें"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size16" />
+
+                        <TextView
+                            android:id="@+id/textSelectCustomer"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="@dimen/dp_2"
+                            android:background="@drawable/dr_edittext_background"
+                            android:fontFamily="@font/app_font_regular"
+                            android:hint="ग्राहक"
+                            android:focusableInTouchMode="true"
+                            android:maxLength="50"
+                            android:maxLines="1"
+                            android:focusable="true"
+                            android:nextFocusDown="@id/editItemAmount"
+                            android:padding="@dimen/dp_18"
+                            android:singleLine="true"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size16" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_15"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:orientation="vertical">
 
@@ -193,6 +220,7 @@
                             android:layout_gravity="center"
                             android:fontFamily="@font/app_font_regular"
                             android:hint="अमाउंट"
+                            android:focusable="false"
                             android:textColor="@color/black"
                             android:textSize="@dimen/text_size16" />
 
@@ -207,20 +235,115 @@
                             android:hint="अमाउंट डाले"
                             android:imeOptions="actionNext"
                             android:inputType="number"
+                            android:focusable="true"
                             android:maxLength="50"
                             android:maxLines="1"
+                            android:nextFocusDown="@id/textSelectItem"
                             android:padding="@dimen/dp_18"
                             android:singleLine="true"
                             android:textColor="@color/black"
                             android:textSize="@dimen/text_size16" />
 
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp_20"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:layout_marginTop="@dimen/dp_10"
+                            android:fontFamily="@font/app_font_regular"
+                            android:hint="रकम का चयन करें"
+                            android:focusable="false"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size16" />
+
+                        <TextView
+                            android:id="@+id/textSelectItem"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="@dimen/dp_2"
+                            android:focusableInTouchMode="true"
+                            android:background="@drawable/dr_edittext_background"
+                            android:fontFamily="@font/app_font_regular"
+                            android:hint="रकम"
+                            android:focusable="true"
+                            android:maxLength="50"
+                            android:maxLines="1"
+                            android:padding="@dimen/dp_18"
+                            android:nextFocusDown="@id/editItemWeight"
+                            android:singleLine="true"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size16" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_15"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/app_font_regular"
+                            android:hint="वज़न"
+                            android:focusable="false"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size16" />
+
+                        <EditText
+                            android:id="@+id/editItemWeight"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp_2"
+                            android:background="@drawable/dr_edittext_background"
+                            android:focusableInTouchMode="true"
+                            android:fontFamily="@font/app_font_regular"
+                            android:hint="वज़न डाले"
+                            android:focusable="true"
+                            android:imeOptions="actionNext"
+                            android:inputType="numberDecimal"
+                            android:maxLength="50"
+                            android:maxLines="1"
+                            android:nextFocusDown="@id/editInterestRate"
+                            android:padding="@dimen/dp_18"
+                            android:singleLine="true"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size16" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp_20"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
                             android:fontFamily="@font/app_font_regular"
                             android:hint="ब्याज दर %"
+                            android:focusable="false"
                             android:textColor="@color/black"
                             android:textSize="@dimen/text_size16" />
 
@@ -233,33 +356,122 @@
                             android:focusableInTouchMode="true"
                             android:fontFamily="@font/app_font_regular"
                             android:imeOptions="actionNext"
-                            android:inputType="number"
+                            android:focusable="true"
+                            android:inputType="numberDecimal"
                             android:maxLength="50"
                             android:maxLines="1"
                             android:padding="@dimen/dp_18"
                             android:singleLine="true"
                             android:text="3"
+                            android:nextFocusDown="@id/editItemDescription"
                             android:textColor="@color/black"
                             android:textSize="@dimen/text_size16" />
-
-
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_gravity="center_vertical"
-                        android:layout_marginStart="@dimen/dp_10"
-                        android:layout_marginTop="@dimen/dp_10"
+                        android:layout_marginTop="@dimen/dp_15"
                         android:layout_weight="1"
                         android:background="@drawable/dr_edittext_background"
                         android:gravity="center"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:visibility="gone">
 
                         <ImageView
                             android:layout_width="150dp"
                             android:layout_height="150dp"
                             android:background="@mipmap/ic_item_default" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_15"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/app_font_regular"
+                            android:hint="डिस्क्रिप्शन"
+                            android:focusable="false"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size16" />
+
+                        <EditText
+                            android:id="@+id/editItemDescription"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="@dimen/dp_2"
+                            android:background="@drawable/dr_edittext_background"
+                            android:focusableInTouchMode="true"
+                            android:fontFamily="@font/app_font_regular"
+                            android:gravity="start"
+                            android:focusable="true"
+                            android:hint="डिस्क्रिप्शन दर्ज करें"
+                            android:nextFocusDown="@id/editEndDate"
+                            android:imeOptions="actionNext"
+                            android:maxLength="50"
+                            android:maxLines="1"
+                            android:padding="@dimen/dp_18"
+                            android:singleLine="true"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size16" />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp_20"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/app_font_regular"
+                            android:hint="एंड डेट"
+                            android:focusable="false"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size16" />
+
+                        <EditText
+                            android:id="@+id/editEndDate"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="@dimen/dp_2"
+                            android:background="@drawable/dr_edittext_background"
+                            android:focusableInTouchMode="true"
+                            android:fontFamily="@font/app_font_regular"
+                            android:gravity="start"
+                            android:hint="लास्ट डेट"
+                            android:focusable="true"
+                            android:imeOptions="actionDone"
+                            android:maxLength="50"
+                            android:maxLines="1"
+                            android:nextFocusDown="@id/textSave"
+                            android:padding="@dimen/dp_18"
+                            android:singleLine="true"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size16" />
 
 
                     </LinearLayout>
@@ -269,69 +481,10 @@
 
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="@dimen/dp_10"
-                    android:fontFamily="@font/app_font_regular"
-                    android:hint="डिस्क्रिप्शन"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/text_size16" />
-
-                <EditText
-                    android:id="@+id/editItemDescription"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="@dimen/dp_2"
-                    android:background="@drawable/dr_edittext_background"
-                    android:focusableInTouchMode="true"
-                    android:fontFamily="@font/app_font_regular"
-                    android:gravity="start"
-                    android:hint="डिस्क्रिप्शन दर्ज करें"
-                    android:imeOptions="actionNext"
-                    android:maxLength="50"
-                    android:maxLines="1"
-                    android:padding="@dimen/dp_18"
-                    android:singleLine="true"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/text_size16" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="@dimen/dp_10"
-                    android:fontFamily="@font/app_font_regular"
-                    android:hint="एंड डेट"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/text_size16" />
-
-                <EditText
-                    android:id="@+id/editEndDate"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="@dimen/dp_2"
-                    android:background="@drawable/dr_edittext_background"
-                    android:focusableInTouchMode="true"
-                    android:fontFamily="@font/app_font_regular"
-                    android:gravity="start"
-                    android:hint="लास्ट डेट"
-                    android:imeOptions="actionNext"
-                    android:maxLength="50"
-                    android:maxLines="1"
-                    android:padding="@dimen/dp_18"
-                    android:singleLine="true"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/text_size16" />
-
-
-                <TextView
                     android:id="@+id/textSave"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dp_20"
+                    android:layout_marginTop="@dimen/dp_30"
                     android:background="@drawable/dr_app_theme_btn_bg"
                     android:fontFamily="@font/app_font_bold"
                     android:gravity="center"

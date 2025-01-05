@@ -36,6 +36,9 @@ import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.content.ContextCompat
 import java.io.*
 import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.Period
+import java.time.format.DateTimeFormatter
 import java.util.*
 import java.util.regex.Matcher
 import java.util.regex.Pattern
@@ -326,6 +329,33 @@ object CommonUtils {
         }
     }
 
+    fun calculateDateDifferenceLegacy(startDate: String?, endDate: String?): String {
+        val dateFormatter = SimpleDateFormat("dd MMM yyyy", Locale.ENGLISH)
+        val start = dateFormatter.parse(startDate)!!
+        val end = dateFormatter.parse(endDate)!!
+        val startCal = Calendar.getInstance().apply { time = start }
+        val endCal = Calendar.getInstance().apply { time = end }
+
+        startCal.add(Calendar.DAY_OF_MONTH, -1)
+
+        val years = endCal.get(Calendar.YEAR) - startCal.get(Calendar.YEAR)
+        val months = endCal.get(Calendar.MONTH) - startCal.get(Calendar.MONTH)
+        val days = endCal.get(Calendar.DAY_OF_MONTH) - startCal.get(Calendar.DAY_OF_MONTH)
+
+        val adjustedMonths = if (days < 0) months - 1 else months
+        val adjustedYears = if (adjustedMonths < 0) years - 1 else years
+        val adjustedDays = if (days < 0) {
+            val prevMonth = (endCal.clone() as Calendar).apply { add(Calendar.MONTH, -1) }
+            days + prevMonth.getActualMaximum(Calendar.DAY_OF_MONTH)
+        } else days
+
+        val parts = mutableListOf<String>()
+        if (adjustedYears != 0) parts.add("$adjustedYears साल")
+        if (adjustedMonths != 0) parts.add("$adjustedMonths महीना")
+        if (adjustedDays != 0) parts.add("$adjustedDays दिन")
+
+        return parts.joinToString(", ")
+    }
 
     fun setUnderLineText(contentText: AppCompatTextView) {
         val content = SpannableString(contentText.text.toString())

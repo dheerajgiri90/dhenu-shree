@@ -42,7 +42,7 @@ class MortgageListActivity : BaseActivity<ActivityMortgageListBinding, MortgageL
         }
 
         if (viewModel.customerData != null) {
-            viewDataBinding!!.toolbar.toolBarHeading.text = viewModel.customerData?.Name.toString()
+            viewDataBinding!!.toolbar.toolBarHeading.text = viewModel.customerData?.Name.toString()+" "+viewModel.customerData?.VillageName.toString()
         }
         if (checkIfInternetOnDialog(tryAgainClick = {
                 viewModel.getMortgageList("")
@@ -59,7 +59,7 @@ class MortgageListActivity : BaseActivity<ActivityMortgageListBinding, MortgageL
 
         mAdapter = MortgageListAdapter(this, arrayList,
             onItemClick = { index ->
-                if (!arrayList[index].IsClosed) {
+//                if (!arrayList[index].IsClosed) {
 
                     if (viewModel.comeFrom == "SELECT") {
                         val resultIntent = Intent()
@@ -71,14 +71,14 @@ class MortgageListActivity : BaseActivity<ActivityMortgageListBinding, MortgageL
                         finish()
                     } else {
                         val resultIntent = Intent(this, MortgageDetailActivity::class.java)
+                        resultIntent.putExtra(IntentKeys.CUSTOMER_DATA.getKey(), viewModel.customerData)
                         resultIntent.putExtra(IntentKeys.MORTGAGE_DATA.getKey(), arrayList[index])
                         mortgageDetailLauncher.launch(resultIntent)
                     }
 
-
-                } else {
-                    showValidationError("पहले से ही क्लोज है ")
-                }
+//                } else {
+//                    showValidationError("पहले से ही क्लोज है ")
+//                }
 
             })
         viewDataBinding!!.recyclerView.setHasFixedSize(true)

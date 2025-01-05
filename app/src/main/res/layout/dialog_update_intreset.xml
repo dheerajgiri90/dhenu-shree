@@ -31,7 +31,7 @@
         android:layout_marginEnd="@dimen/dp_50"
         android:background="@drawable/dr_edittext_background"
         android:focusableInTouchMode="true"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         android:fontFamily="@font/app_font_regular"
         android:hint="ब्याज दर दर्ज करें"
         android:imeOptions="actionNext"

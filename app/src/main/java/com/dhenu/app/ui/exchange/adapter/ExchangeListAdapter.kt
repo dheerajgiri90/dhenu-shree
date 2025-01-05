@@ -32,9 +32,9 @@ class ExchangeListAdapter(
             onItemClick.invoke(position)
         }
 
-        holder.viewDataBinding.textIndexNumber.text = (position + 1).toString()
+        holder.viewDataBinding.textIndexNumber.text = list[position].ManualId
         holder.viewDataBinding.textAmount.text = "₹" + list[position].Amount + "/-"
-        var date = CommonUtils.getDateInFormat(
+        val date = CommonUtils.getDateInFormat(
             "yyyy-MM-dd'T'HH:mm:ss",
             "dd MMM yyyy",
             list[position].ExchangeDate

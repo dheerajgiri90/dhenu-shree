@@ -60,6 +60,7 @@ class AddCustomerActivity : BaseActivity<ActivityAddCustomerBinding, AddCustomer
         DataBinding.onSingleClick(viewDataBinding!!.textVillageName) {
 
             val intent = Intent(this, VillageListActivity::class.java)
+            intent.putExtra(IntentKeys.COME_FROM.getKey(), "SELECT")
             selectVillageLauncher.launch(intent)
 
         }

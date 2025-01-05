@@ -57,6 +57,7 @@ class CustomerListActivity : BaseActivity<ActivityCustomerListBinding, CustomerL
         super.onCreate(savedInstanceState)
         viewModel.navigator = this
         init()
+        viewDataBinding!!.searchField.requestFocus()
 
         if (intent != null && intent.hasExtra(IntentKeys.VILLAGE_DATA.getKey())) {
             viewModel.villageData = intent.getParcelableExtra(IntentKeys.VILLAGE_DATA.getKey())
@@ -75,6 +76,7 @@ class CustomerListActivity : BaseActivity<ActivityCustomerListBinding, CustomerL
         DataBinding.onSingleClick(viewDataBinding!!.textSelectVillage) {
 
             val intent = Intent(this, VillageListActivity::class.java)
+            intent.putExtra(IntentKeys.COME_FROM.getKey(), "SELECT")
             selectVillageLauncher.launch(intent)
 
         }
@@ -130,7 +132,8 @@ class CustomerListActivity : BaseActivity<ActivityCustomerListBinding, CustomerL
             if (result.resultCode == Activity.RESULT_OK) {
                 val data: Intent? = result.data
                 viewModel.villageData = data!!.getParcelableExtra(IntentKeys.VILLAGE_DATA.getKey())
-                viewDataBinding!!.textSelectVillage.setText(viewModel.villageData!!.Name)
+                viewDataBinding!!.textSelectVillage.text = viewModel.villageData?.Name
+                println(">>>>>>>>> villqe name " + viewModel.villageData?.Name)
 
                 if (checkIfInternetOnDialog(tryAgainClick = {
                         viewModel.customerListAPI(searchKeyOffer)
@@ -141,7 +144,7 @@ class CustomerListActivity : BaseActivity<ActivityCustomerListBinding, CustomerL
             }
         }
 
-    val addCustomerLauncher =
+    private val addCustomerLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == Activity.RESULT_OK) {
                 val data: Intent? = result.data

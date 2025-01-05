@@ -9,6 +9,7 @@ import android.os.Bundle
 import android.view.Gravity
 import android.view.ViewGroup
 import android.view.Window
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import com.dhenu.app.BR
 import com.dhenu.app.R
@@ -19,8 +20,10 @@ import com.dhenu.app.ui.customer.customerlist.CustomerListActivity
 import com.dhenu.app.ui.items.ItemsListActivity
 import com.dhenu.app.ui.mortgage.response.AddMortgageResponse
 import com.dhenu.app.ui.village.VillageListActivity
+import com.dhenu.app.util.CommonUtils
 import com.dhenu.app.util.DataBinding
 import com.dhenu.app.util.enums.IntentKeys
+import com.google.android.material.datepicker.MaterialDatePicker
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -42,13 +45,101 @@ class AddMortgageActivity : BaseActivity<ActivityAddMortgageBinding, AddMortgage
         viewModel.navigator = this
         init()
 
+        viewDataBinding!!.dayEditText.requestFocus()
+//        viewDataBinding!!.dayEditText.setOnFocusChangeListener { v, hasFocus ->
+//            if (!hasFocus) {
+//                viewDataBinding!!.monthEditText.requestFocus()
+//            }
+//        }
+//        viewDataBinding!!.monthEditText.setOnFocusChangeListener { v, hasFocus ->
+//            if (!hasFocus) {
+//                viewDataBinding!!.yearEditText.requestFocus()
+//            }
+//        }
+//        viewDataBinding!!.yearEditText.setOnFocusChangeListener { v, hasFocus ->
+//            if (!hasFocus) {
+//                viewDataBinding!!.textSelectVillage.requestFocus()
+//            }
+//        }
+//        viewDataBinding!!.textSelectVillage.setOnFocusChangeListener { v, hasFocus ->
+//            if (!hasFocus) {
+//                viewDataBinding!!.textSelectCustomer.requestFocus()
+//            }
+//        }
+//        viewDataBinding!!.textSelectCustomer.setOnFocusChangeListener { v, hasFocus ->
+//            if (!hasFocus) {
+//                viewDataBinding!!.editItemAmount.requestFocus()
+//            }
+//        }
+//        viewDataBinding!!.editItemAmount.setOnFocusChangeListener { v, hasFocus ->
+//            if (!hasFocus) {
+//                viewDataBinding!!.textSelectItem.requestFocus()
+//            }
+//        }
+//        viewDataBinding!!.textSelectItem.setOnFocusChangeListener { v, hasFocus ->
+//            if (!hasFocus) {
+//                viewDataBinding!!.editItemWeight.requestFocus()
+//            }
+//        }
+//        viewDataBinding!!.editItemWeight.setOnFocusChangeListener { v, hasFocus ->
+//            if (!hasFocus) {
+//                viewDataBinding!!.editInterestRate.requestFocus()
+//            }
+//        }
+//        viewDataBinding!!.editInterestRate.setOnFocusChangeListener { v, hasFocus ->
+//            if (!hasFocus) {
+//                viewDataBinding!!.editItemDescription.requestFocus()
+//            }
+//        }
+//        viewDataBinding!!.editItemDescription.setOnFocusChangeListener { v, hasFocus ->
+//            if (!hasFocus) {
+//                viewDataBinding!!.editEndDate.requestFocus()
+//            }
+//        }
+//        viewDataBinding!!.editEndDate.setOnFocusChangeListener { v, hasFocus ->
+//            if (!hasFocus) {
+//                viewDataBinding!!.textSave.requestFocus()
+//            }
+//        }
+
         val currentDate = Date()
-        val dateFormat = SimpleDateFormat("dd MMM yyyy", Locale.getDefault())
-        val formattedDate = dateFormat.format(currentDate)
-        viewDataBinding!!.textTodayDay.text = "तारीख: $formattedDate"
+        val dateFormat = SimpleDateFormat("dd MMM yyyy HH:mm", Locale.getDefault())
+        viewModel.mortgageDate = dateFormat.format(currentDate)
+
+//        viewDataBinding!!.textTodayDay.text = "तारीख: ${
+//            CommonUtils.getDateInFormat(
+//                "dd MMM yyyy HH:mm",
+//                "dd MMM yyyy",
+//                viewModel.mortgageDate
+//            )
+//        }"
+//
+//        DataBinding.onSingleClick(viewDataBinding!!.textTodayDay) {
+//
+//            val datePicker = MaterialDatePicker.Builder.datePicker().setTitleText("Select a date")
+//                .setSelection(MaterialDatePicker.todayInUtcMilliseconds()) // Preselect today's date
+//                .build()
+//
+//            datePicker.show(supportFragmentManager, "MATERIAL_DATE_PICKER")
+//
+//            datePicker.addOnPositiveButtonClickListener { selection ->
+//                val simpleDateFormat = SimpleDateFormat("dd MMM yyyy HH:mm", Locale.getDefault())
+//                val selectedDate = simpleDateFormat.format(Date(selection))
+//                viewModel.mortgageDate = selectedDate
+//                viewDataBinding!!.textTodayDay.text = "तारीख: " + CommonUtils.getDateInFormat(
+//                    "dd MMM yyyy HH:mm", "dd MMM yyyy", viewModel.mortgageDate
+//                )
+//            }
+//
+//        }
 
         DataBinding.onSingleClick(viewDataBinding!!.textSave) {
             hideKeyboard()
+
+            viewModel.day = viewDataBinding!!.dayEditText.text.toString()
+            viewModel.month = viewDataBinding!!.monthEditText.text.toString()
+            viewModel.year = viewDataBinding!!.yearEditText.text.toString()
+
             if (checkIfInternetOnDialog(tryAgainClick = {
                     if (viewModel.checkValidation(viewDataBinding!!)) {
                         viewModel.addMortgageApi(viewDataBinding!!)
@@ -57,7 +148,9 @@ class AddMortgageActivity : BaseActivity<ActivityAddMortgageBinding, AddMortgage
 
                 viewModel.addMortgageApi(viewDataBinding!!)
             }
+
         }
+
         DataBinding.onSingleClick(viewDataBinding!!.textSelectVillage) {
 
             val intent = Intent(this, VillageListActivity::class.java)
@@ -85,6 +178,7 @@ class AddMortgageActivity : BaseActivity<ActivityAddMortgageBinding, AddMortgage
 
     }
 
+
     override fun init() {
 
         viewDataBinding!!.toolbar.stepBackButton.setOnClickListener { finish() }
@@ -107,7 +201,8 @@ class AddMortgageActivity : BaseActivity<ActivityAddMortgageBinding, AddMortgage
                 val data: Intent? = result.data
                 viewModel.customerData =
                     data!!.getParcelableExtra(IntentKeys.CUSTOMER_DATA.getKey())
-                viewDataBinding!!.textSelectCustomer.text = viewModel.customerData!!.Name
+                viewDataBinding!!.textSelectCustomer.text =
+                    viewModel.customerData?.Name + ", मोबाइल नंबर: " + viewModel.customerData?.MobileNo
             }
         }
 
@@ -148,6 +243,7 @@ class AddMortgageActivity : BaseActivity<ActivityAddMortgageBinding, AddMortgage
         if (data != null) {
             binding.textTokenNumber.text = "टोकन नंबर: ${data.tokenNumber}"
         }
+        binding.textClose.requestFocus()
 
         binding.imageDialogClose.setOnClickListener {
             alertDialog.dismiss()

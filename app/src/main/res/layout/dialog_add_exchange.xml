@@ -15,13 +15,6 @@
         android:layout_gravity="end"
         android:background="@drawable/cancel_button_background" />
 
-    <ImageView
-        android:layout_width="@dimen/dp_120"
-        android:layout_height="@dimen/dp_120"
-        android:layout_gravity="center"
-        android:background="@mipmap/ic_logo" />
-
-
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -69,7 +62,7 @@
         android:focusableInTouchMode="true"
         android:fontFamily="@font/app_font_regular"
         android:imeOptions="actionNext"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         android:maxLength="50"
         android:maxLines="1"
         android:padding="@dimen/dp_20"
@@ -98,6 +91,34 @@
         android:fontFamily="@font/app_font_regular"
         android:hint="दिनांक"
         android:maxLength="50"
+        android:maxLines="1"
+        android:padding="@dimen/dp_20"
+        android:singleLine="true"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_size16" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/dp_20"
+        android:fontFamily="@font/app_font_regular"
+        android:hint="थोक नंबर"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_size16" />
+
+    <EditText
+        android:id="@+id/editThokNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_5"
+        android:background="@drawable/dr_edittext_background"
+        android:focusableInTouchMode="true"
+        android:fontFamily="@font/app_font_regular"
+        android:hint="थोक नंबर"
+        android:imeOptions="actionNext"
+        android:inputType="number"
+        android:maxLength="5"
         android:maxLines="1"
         android:padding="@dimen/dp_20"
         android:singleLine="true"

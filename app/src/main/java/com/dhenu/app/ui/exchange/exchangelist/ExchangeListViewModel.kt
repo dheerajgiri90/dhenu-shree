@@ -75,23 +75,25 @@ class ExchangeListViewModel : BaseViewModel<ExchangeListNavigator>() {
             viewDataBinding.editInterestRate.requestFocus()
             return false
         }
+        if (viewDataBinding.editThokNumber.text!!.trim().isEmpty()) {
+            navigator!!.showValidationError("कृपया थोक नंबर दर्ज करें")
+            viewDataBinding.editThokNumber.requestFocus()
+            return false
+        }
 
         return true
     }
 
     private var isUpdate = false
-    fun addVillageApi(viewDataBinding: DialogAddExchangeBinding?) {
-
-        val currentDate = Date()
-        val dateFormat = SimpleDateFormat("dd MMM yyyy HH:mm", Locale.getDefault())
-        val formattedDate = dateFormat.format(currentDate)
+    fun addVillageApi(viewDataBinding: DialogAddExchangeBinding?,exchangeDate:String) {
 
         navigator!!.showProgress()
         val requestMap: HashMap<String, Any> = HashMap()
         requestMap["BusinessManId"] = businessmanData?.Id.toString()
         requestMap["Amount"] = viewDataBinding?.editItemAmount?.text.toString()
         requestMap["InterestRate"] = viewDataBinding?.editInterestRate?.text.toString()
-        requestMap["ExchangeDate"] = formattedDate
+        requestMap["ExchangeDate"] = exchangeDate
+        requestMap["ManualId"] = viewDataBinding?.editThokNumber?.text.toString()
 
         disposable.add(
             AddExchangeResponse().doNetworkRequest(requestMap, isUpdate,

@@ -6,6 +6,7 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.Gravity
+import android.view.View
 import android.view.ViewGroup
 import android.view.Window
 import com.dhenu.app.BR
@@ -36,6 +37,7 @@ class MortgageDetailActivity :
     override val viewModel = MortgageDetailViewModel()
 
     var formattedDate = ""
+    var currentStatus = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,10 +47,15 @@ class MortgageDetailActivity :
         if (intent != null && intent.hasExtra(IntentKeys.MORTGAGE_DATA.getKey())) {
             viewModel.mortgageData = intent.getParcelableExtra(IntentKeys.MORTGAGE_DATA.getKey())
         }
+        if (intent != null && intent.hasExtra(IntentKeys.CUSTOMER_DATA.getKey())) {
+            viewModel.customerData = intent.getParcelableExtra("CUSTOMER_DATA")
+        }
+        if (viewModel.customerData != null) {
+            viewDataBinding!!.toolbar.toolBarHeading.text =
+                viewModel.customerData?.Name.toString() + " " + viewModel.customerData?.VillageName.toString()
+        }
 
         if (viewModel.mortgageData != null) {
-//            viewDataBinding!!.toolbar.toolBarHeading.text =
-//                viewModel.mortgageData?.CustomerName.toString()
 
             viewModel.interestRate = viewModel.mortgageData?.InterestRate.toString()
 
@@ -66,12 +73,39 @@ class MortgageDetailActivity :
             viewDataBinding!!.textEndDate.text =
                 "अंतिम तिथि: " + viewModel.mortgageData?.EndDateDetail
 
-            viewDataBinding!!.textVillageName.text = "गाँव: " + viewModel.mortgageData?.VillageName
-            viewDataBinding!!.textMobileNumber.text =
-                "मोबाइल नंबर: " + viewModel.mortgageData?.MobileNo
-
+//            viewDataBinding!!.textMobileNumber.text =
+//                "मोबाइल नंबर: " + viewModel.mortgageData?.MobileNo
             viewDataBinding!!.textTotalAmount.text =
-                "Total Amount ₹ ${viewModel.mortgageData!!.TotalAmount}"
+                "टोटल अमाउंट: ₹ ${viewModel.mortgageData!!.TotalAmount}"
+
+            val interestAmount =
+                viewModel.mortgageData?.TotalAmount?.minus(viewModel.mortgageData?.Amount!!)
+            viewDataBinding!!.textInterestAmount.text =
+                interestAmount.toString()
+
+            var showStatus = ""
+            if (viewModel.mortgageData?.IsExchanged == true) {
+                currentStatus = "Trade"
+                showStatus = "व्यापारी को दिया"
+                viewDataBinding!!.textCloseMortgage.visibility = View.GONE
+                viewDataBinding!!.layoutExchangeDetail.visibility = View.VISIBLE
+            } else if (viewModel.mortgageData?.IsClosed == true) {
+                currentStatus = "Closed"
+                showStatus = "समाप्त"
+                viewDataBinding!!.textCloseMortgage.visibility = View.GONE
+            } else {
+                currentStatus = "Open"
+                showStatus = "लॉकर में रखा"
+            }
+            viewDataBinding!!.textMortgageStatus.text = "वर्तमान स्थिति: $showStatus"
+            viewDataBinding!!.textTokenNumber.text =
+                "टोकन नंबर: " + viewModel.mortgageData?.Id.toString()
+
+            viewDataBinding!!.textBusinessmanName.text =
+                "व्यापारी का नाम: " + viewModel.mortgageData?.BusinessmanName
+
+            viewDataBinding!!.textExchangeId.text =
+                "थोक नंबर: " + viewModel.mortgageData?.ManualId.toString()
 
         }
 
@@ -79,30 +113,51 @@ class MortgageDetailActivity :
         val dateFormat = SimpleDateFormat("dd MMM yyyy HH:mm", Locale.getDefault())
         viewModel.endDateServer = dateFormat.format(currentDate)
 
-        viewDataBinding!!.textTodayDate.text =
+        val currentDateFormated =
             CommonUtils.getDateInFormat("dd MMM yyyy HH:mm", "dd MMM yyyy", viewModel.endDateServer)
+        viewDataBinding!!.textTotalDays.text = CommonUtils.calculateDateDifferenceLegacy(
+            viewModel.mortgageData?.MortgageDate,
+            currentDateFormated
+        )
+        viewDataBinding!!.textTodayDate.text = currentDateFormated
 
         DataBinding.onSingleClick(viewDataBinding!!.textTodayDate) {
 
-            val datePicker = MaterialDatePicker.Builder.datePicker().setTitleText("Select a date")
-                .setSelection(MaterialDatePicker.todayInUtcMilliseconds()) // Preselect today's date
-                .build()
+            if (currentStatus != "Closed") {
+                val datePicker =
+                    MaterialDatePicker.Builder.datePicker().setTitleText("Select a date")
+                        .setSelection(MaterialDatePicker.todayInUtcMilliseconds()) // Preselect today's date
+                        .build()
 
-            datePicker.show(supportFragmentManager, "MATERIAL_DATE_PICKER")
+                datePicker.show(supportFragmentManager, "MATERIAL_DATE_PICKER")
 
-            datePicker.addOnPositiveButtonClickListener { selection ->
-                val simpleDateFormat = SimpleDateFormat("dd MMM yyyy HH:mm", Locale.getDefault())
-                val selectedDate = simpleDateFormat.format(Date(selection))
-                viewModel.endDateServer = selectedDate
-                viewDataBinding!!.textTodayDate.text = CommonUtils.getDateInFormat(
-                    "dd MMM yyyy HH:mm", "dd MMM yyyy", viewModel.endDateServer
-                )
-                if (checkIfInternetOnDialog(tryAgainClick = {
+                datePicker.addOnPositiveButtonClickListener { selection ->
+                    val simpleDateFormat =
+                        SimpleDateFormat("dd MMM yyyy HH:mm", Locale.getDefault())
+                    val selectedDate = simpleDateFormat.format(Date(selection))
+                    viewModel.endDateServer = selectedDate
+
+                    val currentDateFormated = CommonUtils.getDateInFormat(
+                        "dd MMM yyyy HH:mm",
+                        "dd MMM yyyy",
+                        viewModel.endDateServer
+                    )
+                    viewDataBinding!!.textTotalDays.text =
+                        CommonUtils.calculateDateDifferenceLegacy(
+                            viewModel.mortgageData?.MortgageDate,
+                            currentDateFormated
+                        )
+
+                    viewDataBinding!!.textTodayDate.text = currentDateFormated
+
+                    if (checkIfInternetOnDialog(tryAgainClick = {
+                            viewModel.updateMortgageApi(false)
+                        })) {
                         viewModel.updateMortgageApi(false)
-                    })) {
-                    viewModel.updateMortgageApi(false)
+                    }
                 }
-
+            } else {
+                showValidationError("यह टोकन क्लोज हो चुका है")
             }
 
         }
@@ -117,7 +172,12 @@ class MortgageDetailActivity :
         }
         DataBinding.onSingleClick(viewDataBinding!!.textInterestRate) {
 
-            showUpdateInterestRate();
+            if (currentStatus != "Closed") {
+                showUpdateInterestRate();
+            } else {
+                showValidationError("यह टोकन क्लोज हो चुका है")
+            }
+
         }
 
     }
@@ -130,6 +190,17 @@ class MortgageDetailActivity :
             finish()
 
         } else {
+
+            val interestAmount = response.totalAmount.toDouble().minus(viewModel.mortgageData?.Amount!!)
+            viewDataBinding!!.textInterestAmount.text = interestAmount.toString()
+
+            val currentDateFormated =
+                CommonUtils.getDateInFormat("dd MMM yyyy HH:mm", "dd MMM yyyy", viewModel.endDateServer)
+            viewDataBinding!!.textTotalDays.text = CommonUtils.calculateDateDifferenceLegacy(
+                viewModel.mortgageData?.MortgageDate,
+                currentDateFormated
+            )
+
             viewDataBinding!!.textTotalAmount.text = "Total Amount ₹ " + response.totalAmount
         }
     }
@@ -137,7 +208,7 @@ class MortgageDetailActivity :
     override fun init() {
 
         viewDataBinding!!.toolbar.stepBackButton.setOnClickListener { finish() }
-        viewDataBinding!!.toolbar.toolBarHeading.text = "गिरवी छुड़वाना"
+        //viewDataBinding!!.toolbar.toolBarHeading.text = "गिरवी छुड़वाना"
 
     }
 

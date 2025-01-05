@@ -30,6 +30,7 @@ import com.dhenu.app.ui.exchange.response.ExchangeListResponse.ExchangeData
 import com.dhenu.app.util.CommonUtils
 import com.dhenu.app.util.DataBinding
 import com.dhenu.app.util.enums.IntentKeys
+import com.google.android.material.datepicker.MaterialDatePicker
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -192,23 +193,50 @@ class ExchangeListActivity : BaseActivity<ActivityExchangeListBinding, ExchangeL
             alertDialog.dismiss()
         }
 
-
         val currentDate = Date()
-        val dateFormat = SimpleDateFormat("dd MMM yyyy", Locale.getDefault())
-        val formattedDate = dateFormat.format(currentDate)
-        binding.textTodayDate.text = "$formattedDate"
+        val dateFormat = SimpleDateFormat("dd MMM yyyy HH:mm", Locale.getDefault())
+        var exchangeDate = dateFormat.format(currentDate)
+
+        binding.textTodayDate.text =
+            CommonUtils.getDateInFormat(
+                "dd MMM yyyy HH:mm",
+                "dd MMM yyyy",
+                exchangeDate
+            )
+
+        DataBinding.onSingleClick(binding.textTodayDate) {
+
+            val datePicker = MaterialDatePicker.Builder.datePicker().setTitleText("Select a date")
+                .setSelection(MaterialDatePicker.todayInUtcMilliseconds()) // Preselect today's date
+                .build()
+
+            datePicker.show(supportFragmentManager, "MATERIAL_DATE_PICKER")
+
+            datePicker.addOnPositiveButtonClickListener { selection ->
+                val simpleDateFormat = SimpleDateFormat("dd MMM yyyy HH:mm", Locale.getDefault())
+                val selectedDate = simpleDateFormat.format(Date(selection))
+                exchangeDate = selectedDate
+
+                binding.textTodayDate.text =
+                    CommonUtils.getDateInFormat(
+                        "dd MMM yyyy HH:mm",
+                        "dd MMM yyyy",
+                        exchangeDate
+                    )
+            }
+        }
 
         binding.textSave.setOnClickListener {
 
             if (checkIfInternetOnDialog(tryAgainClick = {
                     if (viewModel.checkValidation(binding)) {
                         alertDialog.dismiss()
-                        viewModel.addVillageApi(binding)
+                        viewModel.addVillageApi(binding,exchangeDate)
                     }
                 }))
                 if (viewModel.checkValidation(binding)) {
                     alertDialog.dismiss()
-                    viewModel.addVillageApi(binding)
+                    viewModel.addVillageApi(binding,exchangeDate)
                 }
         }
 

@@ -37,6 +37,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(), HomeNav
         super.onViewCreated(view, savedInstanceState)
         viewModel.navigator = this
         init()
+        viewDataBinding!!.textMortgage.requestFocus()
     }
 
     override fun init() {

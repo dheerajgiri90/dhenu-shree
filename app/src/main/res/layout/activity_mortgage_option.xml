@@ -72,6 +72,8 @@
                         android:paddingEnd="@dimen/dp_10"
                         android:paddingBottom="@dimen/dp_25"
                         android:text="गिरवी रखना"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
                         android:textColor="@color/black"
                         android:textSize="@dimen/text_size20" />
 
@@ -111,7 +113,7 @@
                         android:paddingTop="@dimen/dp_25"
                         android:paddingEnd="@dimen/dp_10"
                         android:paddingBottom="@dimen/dp_25"
-                        android:text="ग्राहक जोड़ें/सुधार करे"
+                        android:text="ग्राहक जोड़ें/गिरवी देखे"
                         android:textColor="@color/black"
                         android:textSize="@dimen/text_size20" />
 

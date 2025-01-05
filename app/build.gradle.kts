@@ -66,7 +66,7 @@ android {
             dimension = "environment"
             versionCode = 1
             versionName = "1.0.0-alpha1"
-            buildConfigField("String", "BASE_URL", "\"https://dggold.site99.in/api/\"")
+            buildConfigField("String", "BASE_URL", "\"https://dggoldprod.site99.in/api/\"")
             buildConfigField("String", "GOOGLE_API_URL", "\"https://maps.googleapis.com/maps/api/\"")
             buildConfigField("String", "PRIVACY_POLICY_URL", "\"https://encoresky.com/about\"")
 

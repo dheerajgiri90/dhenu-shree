@@ -3,12 +3,14 @@ package com.dhenu.app.ui.mortgage.mortgagedetail
 import com.dhenu.app.data.ListData
 import com.dhenu.app.data.local.AppPreference
 import com.dhenu.app.ui.base.BaseViewModel
+import com.dhenu.app.ui.customer.response.CustomerListResponse.CustomerData
 import com.dhenu.app.ui.mortgage.response.MortgageListResponse.MortgageData
 import com.dhenu.app.ui.mortgage.response.UpdateMortgageResponse
 import com.dhenu.app.util.NetworkResponseCallback
 
 class MortgageDetailViewModel : BaseViewModel<MortgageDetailNavigator>() {
 
+    var customerData: CustomerData? = null
     var villageData: ListData? = null
     var mortgageData: MortgageData? = null
 

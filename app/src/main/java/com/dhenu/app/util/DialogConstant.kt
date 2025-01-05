@@ -235,6 +235,7 @@ object DialogConstant {
             val button_ok = alertDialog.findViewById<Button>(R.id.button_ok)
             button_ok.applyClickShrink()
             tvMessage.text = msg
+            button_ok.requestFocus()
             button_ok.setOnClickListener { view ->
                 alertDialog.dismiss()
 

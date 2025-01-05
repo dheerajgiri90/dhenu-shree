@@ -12,6 +12,7 @@ class MyApplication : Application() {
 
         init(this)
         AppPreference.getInstance(this)
+
     }
 
     fun init(app: MyApplication) {

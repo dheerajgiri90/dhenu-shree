@@ -43,7 +43,8 @@ class ExchangeListResponse : BaseResponse<ExchangeListResponse, String, Any>() {
         val BusinessManName: String,
         val ExchangeDate: String,
         val ExchangeId: Int,
-        val InterestRate: Double
+        val InterestRate: Double,
+        val ManualId: String? = ""
     ) : Parcelable
 
 }

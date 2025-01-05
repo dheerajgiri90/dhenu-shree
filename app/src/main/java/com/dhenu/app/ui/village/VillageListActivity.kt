@@ -53,10 +53,10 @@ class VillageListActivity : BaseActivity<ActivityCommonListBinding, VillageListV
         super.onCreate(savedInstanceState)
         viewModel.navigator = this
         init()
+        viewDataBinding!!.rlSearchView.requestFocus()
         if (intent != null && intent.hasExtra(IntentKeys.COME_FROM.getKey())) {
             comefrom = intent.getStringExtra(IntentKeys.COME_FROM.getKey()).toString()
         }
-
         DataBinding.onSingleClick(viewDataBinding!!.textAddVillage) {
             hideKeyboard()
             showAddDialog(null)
@@ -77,7 +77,7 @@ class VillageListActivity : BaseActivity<ActivityCommonListBinding, VillageListV
         viewDataBinding!!.searchField.addTextChangedListener(object : TextWatcher {
 
             override fun afterTextChanged(s: Editable?) {
-                searchKeyOffer = s.toString()
+                searchKeyOffer = s.toString().trim()
                 last_text_edit = System.currentTimeMillis()
                 handler.postDelayed(input_finish_checker, delay)
                 if (searchKeyOffer.isEmpty()) {
