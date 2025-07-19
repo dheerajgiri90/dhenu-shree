@@ -32,16 +32,17 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/dp_15"
                 android:layout_toStartOf="@+id/textAddVillage"
-                android:layout_weight="3"
-                android:background="@drawable/dr_edittext_background">
+                android:layout_weight="3">
 
                 <EditText
                     android:id="@+id/searchField"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/transparent"
+                    android:background="@drawable/dr_edittext_background"
                     android:fontFamily="@font/app_font_regular"
                     android:hint="सर्च करे"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
                     android:imeOptions="actionDone"
                     android:inputType="textPersonName"
                     android:padding="@dimen/dp_15" />
@@ -67,12 +68,12 @@
                 android:id="@+id/textAddVillage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:singleLine="true"
                 android:layout_weight="7"
                 android:background="@drawable/dr_light_gray_bg"
                 android:fontFamily="@font/app_font_medium"
                 android:gravity="center"
                 android:padding="@dimen/dp_15"
+                android:singleLine="true"
                 android:text="नया ऐड करे"
                 android:textColor="@color/black"
                 android:textSize="@dimen/text_size18"

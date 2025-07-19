@@ -49,10 +49,11 @@ class ItemsListActivity : BaseActivity<ActivityItemsListBinding, ItemsListViewMo
     var comefrom: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         viewModel.navigator = this
         init()
-
+        viewDataBinding!!.searchField.requestFocus()
         if (intent != null && intent.hasExtra(IntentKeys.COME_FROM.getKey())) {
             comefrom = intent.getStringExtra(IntentKeys.COME_FROM.getKey()).toString()
         }

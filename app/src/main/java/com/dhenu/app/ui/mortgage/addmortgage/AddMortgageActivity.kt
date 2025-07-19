@@ -46,61 +46,6 @@ class AddMortgageActivity : BaseActivity<ActivityAddMortgageBinding, AddMortgage
         init()
 
         viewDataBinding!!.dayEditText.requestFocus()
-//        viewDataBinding!!.dayEditText.setOnFocusChangeListener { v, hasFocus ->
-//            if (!hasFocus) {
-//                viewDataBinding!!.monthEditText.requestFocus()
-//            }
-//        }
-//        viewDataBinding!!.monthEditText.setOnFocusChangeListener { v, hasFocus ->
-//            if (!hasFocus) {
-//                viewDataBinding!!.yearEditText.requestFocus()
-//            }
-//        }
-//        viewDataBinding!!.yearEditText.setOnFocusChangeListener { v, hasFocus ->
-//            if (!hasFocus) {
-//                viewDataBinding!!.textSelectVillage.requestFocus()
-//            }
-//        }
-//        viewDataBinding!!.textSelectVillage.setOnFocusChangeListener { v, hasFocus ->
-//            if (!hasFocus) {
-//                viewDataBinding!!.textSelectCustomer.requestFocus()
-//            }
-//        }
-//        viewDataBinding!!.textSelectCustomer.setOnFocusChangeListener { v, hasFocus ->
-//            if (!hasFocus) {
-//                viewDataBinding!!.editItemAmount.requestFocus()
-//            }
-//        }
-//        viewDataBinding!!.editItemAmount.setOnFocusChangeListener { v, hasFocus ->
-//            if (!hasFocus) {
-//                viewDataBinding!!.textSelectItem.requestFocus()
-//            }
-//        }
-//        viewDataBinding!!.textSelectItem.setOnFocusChangeListener { v, hasFocus ->
-//            if (!hasFocus) {
-//                viewDataBinding!!.editItemWeight.requestFocus()
-//            }
-//        }
-//        viewDataBinding!!.editItemWeight.setOnFocusChangeListener { v, hasFocus ->
-//            if (!hasFocus) {
-//                viewDataBinding!!.editInterestRate.requestFocus()
-//            }
-//        }
-//        viewDataBinding!!.editInterestRate.setOnFocusChangeListener { v, hasFocus ->
-//            if (!hasFocus) {
-//                viewDataBinding!!.editItemDescription.requestFocus()
-//            }
-//        }
-//        viewDataBinding!!.editItemDescription.setOnFocusChangeListener { v, hasFocus ->
-//            if (!hasFocus) {
-//                viewDataBinding!!.editEndDate.requestFocus()
-//            }
-//        }
-//        viewDataBinding!!.editEndDate.setOnFocusChangeListener { v, hasFocus ->
-//            if (!hasFocus) {
-//                viewDataBinding!!.textSave.requestFocus()
-//            }
-//        }
 
         val currentDate = Date()
         val dateFormat = SimpleDateFormat("dd MMM yyyy HH:mm", Locale.getDefault())
